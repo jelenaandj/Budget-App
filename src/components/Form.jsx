@@ -9,11 +9,12 @@ export default function Form(props) {
 
     const options = [
         { value: 'Income', label: '+' },
-        { value: 'Expence', label: '-' }
+        { value: 'Expense', label: '-' }
       ]
     // let{handleClick,input}=props
     const[select,setSelect]=useState('')
     const[text,setText]=useState()
+    const[numb,setNumb]=useState()
  
 
     // const onSelectChange=(e)=>{
@@ -42,19 +43,27 @@ export default function Form(props) {
         console.log('empty')}
 
     }
+    const onNumbInput=(e)=>{
+        if(e.target.value !== ''){
+            setNumb(e.target.value)}else{
+            console.log('empty')}
+    }
 
     const handleButton=(e)=>{
         if(e.value !==''){
-        handleClick(select,text)}else{
+        handleClick(select,text,numb)}else{
             console.log('empty')
         }
         e.preventDefault()
     }
 
+
     return (
         <div className='form' >
             <Select options={options} onChange={onSelectChange} />   
             <input type='text' onChange={onTextInput} />
+            <input type='text' onChange={onNumbInput} />
+
             <button onClick={handleButton}>Submit</button>
         </div>
     )

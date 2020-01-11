@@ -4,16 +4,17 @@ import './App.css';
 // import Content from './layout/Content';
 import Form from './components/Form';
 import Income from './components/Income';
-import Expences from './components/Expences';
+import Expenses from './components/Expenses';
 
 
 function App() {
 
   const[inputs,setInputs]=useState([]);
+  // const[totalE,setTotalE]=useState('')
 
-  const handleClick=(value,text)=>{
+  const handleClick=(value,text,numb)=>{
     let tmp=[...inputs]
-    tmp.push({value,text})
+    tmp.push({value,text,numb})
     setInputs(tmp)
   }
 
@@ -21,7 +22,7 @@ function App() {
     <div className="App">
     <Form handleClick={handleClick} inputs={inputs} setInputs={setInputs} />
     <Income inputs={inputs} />
-    <Expences inputs={inputs} />
+    <Expenses inputs={inputs} />
     </div>
   );
 }
