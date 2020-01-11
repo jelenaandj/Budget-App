@@ -4,6 +4,7 @@ import './App.css';
 // import Content from './layout/Content';
 import Form from './components/Form';
 import Income from './components/Income';
+import Expences from './components/Expences';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     <div className="App">
     <Form handleClick={handleClick} inputs={inputs} setInputs={setInputs} />
     <Income inputs={inputs} />
+    <Expences inputs={inputs} />
     </div>
   );
 }

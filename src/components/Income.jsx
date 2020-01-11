@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Input from './Input'
 
 
@@ -14,7 +14,7 @@ export default function Income(props) {
 
     return (
         <div>
-           {/* {inputs.filter(inputB=> inputB.value.includes('Income')).map(inputB=> <Input inputB={inputB} />) } */}
+           {inputs.filter(inputB=> inputB.value.includes('Income')).map(inputB=> <Input inputB={inputB} />) }
         </div>
     )
 }

@@ -5,7 +5,7 @@ import Select from 'react-select'
 
 export default function Form(props) {
     let handleClick=props.handleClick
-    let inputs=props.inputs
+    // let inputs=props.inputs
 
     const options = [
         { value: 'Income', label: '+' },
