@@ -40,3 +40,9 @@
 .form{
   width: 150px;
 }
+.expenses{
+  color: red;
+}
+.income{
+  color:blue;
+}

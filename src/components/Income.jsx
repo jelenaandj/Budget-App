@@ -13,7 +13,7 @@ export default function Income(props) {
     // let list=[...display]
 
     return (
-        <div>
+        <div className='income' >
            {inputs.filter(inputB=> inputB.value.includes('Income')).map(inputB=> <Input inputB={inputB} />) }
         </div>
     )
