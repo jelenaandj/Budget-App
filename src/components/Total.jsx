@@ -5,20 +5,19 @@ export default function Total(props) {
     let inputs=props.inputs
 
     const[totalInput,setTotalInput]=useState(0)
-    let value
-
-    var reducer = (accumulator, currentValue) => accumulator + currentValue.numb;
-    if( typeof inputs != 'undefined' && inputs instanceof Array&&inputs.length!==0){
-        value=inputs.reduce(reducer);
-    }
 
     console.log('inputs total',inputs)
     // if(inputs.length!==0)
+
     useEffect(()=>{
-        
-        setTotalInput(value);
-    },value)
-    
+        if( typeof inputs != 'undefined' && inputs instanceof Array&&inputs.length!==0){
+            let total=0
+            inputs.forEach(input => {
+                total+=parseInt(input.numb)
+            });
+            setTotalInput(total)
+        }
+    },)
 
     return (
         <div>
