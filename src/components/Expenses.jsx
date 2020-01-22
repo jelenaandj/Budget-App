@@ -16,19 +16,14 @@ export default function Expenses(props) {
     //         inputs.filter(numb=>numb.reduce(reducer))
     //     }else{alert('mistake')}
     // }
-   if(inputs!==''){
-       let tmp=[...inputs]
-   }
+   
     
 
     return (
         <div className='expenses' >
-        <div>
+
            {inputs.filter(inputB=> inputB.value.includes('Expense')).map(inputB=> <Input inputB={inputB} />) }
-        </div>
-        {/* <div>
-            {inputs.filter(inputB=> inputB.value.includes('Expense')).reduce(reducer).map(totalExp=> <p>{totalExp.numb}</p>)}
-        </div> */}
+    
         </div>
     )
 }

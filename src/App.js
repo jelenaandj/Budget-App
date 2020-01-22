@@ -11,7 +11,7 @@ import Total from './components/Total';
 function App() {
 
   const[inputs,setInputs]=useState([]);
-  const[totalExp,setTotalExp]=useState([])
+  // const[totalExp,setTotalExp]=useState([])
 
   const handleClick=(value,text,numb)=>{
     let tmp=[...inputs]
@@ -21,10 +21,12 @@ function App() {
 
   return (
     <div className="App">
+    <Total input={inputs.filter(inputB=> inputB.value.includes('Income'))}/>
+    <Total input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/>
     <Form handleClick={handleClick} inputs={inputs} setInputs={setInputs} />
     <Income inputs={inputs} />
     <Expenses inputs={inputs}  />
-    <Total inputs={inputs}totalExp={totalExp} setTotalExp={setTotalExp}/>
+    {/* <Total inputs={inputs}totalExp={totalExp} setTotalExp={setTotalExp}/> */}
     </div>
   );
 }
