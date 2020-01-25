@@ -6,6 +6,7 @@ import Form from './components/Form';
 import Income from './components/Income';
 import Expenses from './components/Expenses';
 import Total from './components/Total';
+import Budget from './components/Budget';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <div className="App">
+    <Budget expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
     <Total input={inputs.filter(inputB=> inputB.value.includes('Income'))}/>
     <Total input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/>
     <Form handleClick={handleClick} inputs={inputs} setInputs={setInputs} />
