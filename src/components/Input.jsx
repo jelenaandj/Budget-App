@@ -6,10 +6,15 @@ export default function Input(props) {
     console.log(inputB)
 
     return (
+        <>
         <div>
             <p>{inputB.value}</p>
             <p>{inputB.text} </p>
             <p>{parseInt(inputB.numb)} </p>
         </div>
+        {inputB?
+            <button>Delete</button>
+        :null}
+        </>
     )
 }
