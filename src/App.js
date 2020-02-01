@@ -7,6 +7,7 @@ import Income from './components/Income';
 import Expenses from './components/Expenses';
 import Total from './components/Total';
 import Budget from './components/Budget';
+const uuidv4 = require('uuid/v4')
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
 
   const handleClick=(value,text,numb)=>{
     let tmp=[...inputs]
-    tmp.push({value,text,numb})
+    tmp.push({value,text,numb,id:uuidv4()})
     setInputs(tmp)
   }
 
@@ -26,8 +27,8 @@ function App() {
     <Total input={inputs.filter(inputB=> inputB.value.includes('Income'))}/>
     <Total input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/>
     <Form handleClick={handleClick} inputs={inputs} setInputs={setInputs} />
-    <Income inputs={inputs} />
-    <Expenses inputs={inputs}  />
+    <Income inputs={inputs} setInputs={setInputs}/>
+    <Expenses inputs={inputs} setInputs={setInputs} />
     {/* <Total inputs={inputs}totalExp={totalExp} setTotalExp={setTotalExp}/> */}
     </div>
   );
