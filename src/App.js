@@ -9,7 +9,8 @@ import Total from './components/Total';
 import Budget from './components/Budget';
 const uuidv4 = require('uuid/v4')
 
-
+//smth wrong w last numb in arr
+ 
 function App() {
 
   const[inputs,setInputs]=useState([]);

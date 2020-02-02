@@ -15,6 +15,8 @@ export default function Total(props) {
                 total+=parseInt(input.numb)
             });
             setTotalInput(total)
+        }else{
+            setTotalInput(0)
         }
     },)
 

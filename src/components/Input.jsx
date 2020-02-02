@@ -10,7 +10,10 @@ export default function Input(props) {
     // console.log(inputB)
 
     const handleDelete=(id)=>{
-        setInputs(inputs.filter(input=>input.id !==id))
+        if(inputs.length !==0){
+            setInputs(inputs.filter(input=>input.id !==id))
+        }
+       
         // inputs.splice(e.target.value)
         // setRecipes(recipes.filter(recipe=>recipe.id !==id))
         
