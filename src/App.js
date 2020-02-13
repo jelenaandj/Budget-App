@@ -7,6 +7,7 @@ import Income from './components/Income';
 import Expenses from './components/Expenses';
 import Total from './components/Total';
 import Budget from './components/Budget';
+import Login from './components/Login';
 const uuidv4 = require('uuid/v4')
 
 //smth wrong w last numb in arr
@@ -14,6 +15,7 @@ const uuidv4 = require('uuid/v4')
 function App() {
 
   const[inputs,setInputs]=useState([]);
+  const[user,setUser]=useState([])
   // const[totalExp,setTotalExp]=useState([])
 
   const handleClick=(value,text,numb)=>{
@@ -24,6 +26,7 @@ function App() {
 
   return (
     <div className="App">
+    <Login/>
     <Budget expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
     <Total input={inputs.filter(inputB=> inputB.value.includes('Income'))}/>
     <Total input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/>
