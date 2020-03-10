@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,6 +35,17 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 15rem;
+}
+
+.container > div {
+  padding: 1.5rem;
+  border-radius: 1rem;
 }
 
 .form{

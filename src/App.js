@@ -77,9 +77,10 @@ switch (a.getMonth() + 1) {
     <Total input={inputs.filter(inputB=> inputB.value.includes('Income'))}/>
     <Total input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/>
     <Form handleClick={handleClick} inputs={inputs} setInputs={setInputs} />
+    <div className='container'>
     <Income inputs={inputs} setInputs={setInputs}/>
     <Expenses inputs={inputs} setInputs={setInputs} />
-    {/* <Total inputs={inputs}totalExp={totalExp} setTotalExp={setTotalExp}/> */}
+    </div>
     </div>
   );
 }
