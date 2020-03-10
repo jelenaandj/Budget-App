@@ -8,6 +8,7 @@ import Expenses from './components/Expenses';
 import Total from './components/Total';
 import Budget from './components/Budget';
 import Login from './components/Login';
+import Header from './layout/Header';
 const uuidv4 = require('uuid/v4')
 
 //smth wrong w last numb in arr
@@ -24,9 +25,54 @@ function App() {
     setInputs(tmp)
   }
 
+  let a = new Date;
+  let m = '';
+
+switch (a.getMonth() + 1) {
+    case 1:
+        m = 'January';
+        break;
+    case 2:
+        m = 'February';
+        break;
+    case 3:
+        m = 'March';
+        break;
+    case 4:
+        m = 'April';
+        break;
+    case 5:
+        m = 'May';
+        break;
+    case 6:
+        m = 'Jun';
+        break;
+    case 7:
+        m = 'July';
+        break;
+    case 8:
+        m = 'August';
+        break;
+    case 9:
+        m = 'September';
+        break;
+    case 10:
+        m = 'Octobar';
+        break;
+    case 11:
+        m = 'November';
+        break;
+    case 12:
+        m = 'December';
+        break;
+    default:
+        break;
+}
+
   return (
     <div className="App">
-    <Login/>
+    <Login />
+    <Header m={m}/>
     <Budget expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
     <Total input={inputs.filter(inputB=> inputB.value.includes('Income'))}/>
     <Total input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/>
