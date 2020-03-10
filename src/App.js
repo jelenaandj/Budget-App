@@ -9,6 +9,7 @@ import Total from './components/Total';
 import Budget from './components/Budget';
 import Login from './components/Login';
 import Header from './layout/Header';
+import Register from './components/Register';
 const uuidv4 = require('uuid/v4')
 
 //smth wrong w last numb in arr
@@ -71,7 +72,8 @@ switch (a.getMonth() + 1) {
 
   return (
     <div className="App">
-    <Login />
+    {/* {loggedIn}? <Login /> : <Register/> */}
+    
     <Header m={m}/>
     <Budget expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
     <Total input={inputs.filter(inputB=> inputB.value.includes('Income'))}/>
