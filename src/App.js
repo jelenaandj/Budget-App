@@ -1,4 +1,10 @@
 import React, { useState } from 'react';
+
+import * as firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
+import "firebase/database";
+
 import './App.css';
 // import Header from './layout/Header';
 // import Content from './layout/Content';
@@ -12,13 +18,36 @@ import Header from './layout/Header';
 import Register from './components/Register';
 const uuidv4 = require('uuid/v4')
 
-//smth wrong w last numb in arr
+
+
+const firebaseConfig = {
+    apiKey: "AIzaSyAVNGZqhJbMxHXce-_YzNB0Xb0AY7xsYBs",
+    authDomain: "budget-4f776.firebaseapp.com",
+    databaseURL: "https://budget-4f776.firebaseio.com",
+    projectId: "budget-4f776",
+    storageBucket: "budget-4f776.appspot.com",
+    messagingSenderId: "596525510270",
+    appId: "1:596525510270:web:59c7fd11054177c4a8b22f"
+  };
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+var database = firebase.database();
  
 function App() {
 
   const[inputs,setInputs]=useState([]);
   const[user,setUser]=useState([])
   // const[totalExp,setTotalExp]=useState([])
+
+  function writeData(total) {
+    firebase.database().ref('budgets/').set({
+      
+      budgets: total
+    });
+  }
+
 
   const handleClick=(value,text,numb)=>{
     let tmp=[...inputs]
@@ -75,8 +104,8 @@ switch (a.getMonth() + 1) {
     {/* {loggedIn}? <Login /> : <Register/> */}
     
     <Header m={m}/>
-    <Budget expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
-    <Total input={inputs.filter(inputB=> inputB.value.includes('Income'))}/>
+    <Budget writeData={writeData} expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
+    <Total input={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
     <Total input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/>
     <Form handleClick={handleClick} inputs={inputs} setInputs={setInputs} />
     <div className='container'>
