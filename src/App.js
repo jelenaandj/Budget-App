@@ -8,7 +8,7 @@ import "firebase/database";
 import './App.css';
 // import Header from './layout/Header';
 // import Content from './layout/Content';
-import Form from './components/Form';
+import Form from './components/Form'; 
 import Income from './components/Income';
 import Expenses from './components/Expenses';
 import Total from './components/Total';
@@ -19,7 +19,12 @@ import Register from './components/Register';
 const uuidv4 = require('uuid/v4')
 
 
+function App() {
+    const[inputs,setInputs]=useState([]);
+    const[user,setUser]=useState()
+    // const[totalExp,setTotalExp]=useState([])
 
+/////////////////////////FIREBASE/////////////
 const firebaseConfig = {
     apiKey: "AIzaSyAVNGZqhJbMxHXce-_YzNB0Xb0AY7xsYBs",
     authDomain: "budget-4f776.firebaseapp.com",
@@ -34,26 +39,20 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
- 
-function App() {
 
-  const[inputs,setInputs]=useState([]);
-  const[user,setUser]=useState([])
-  // const[totalExp,setTotalExp]=useState([])
-
+  // write in database
   function writeData(total) {
-    firebase.database().ref('budgets/').set({
-      
-      budgets: total
+    firebase.database().ref('total/').set({
+      total: total
     });
   }
-
 
   const handleClick=(value,text,numb)=>{
     let tmp=[...inputs]
     tmp.push({value,text,numb,id:uuidv4()})
     setInputs(tmp)
   }
+
 
   let a = new Date;
   let m = '';
@@ -102,7 +101,7 @@ switch (a.getMonth() + 1) {
   return (
     <div className="App">
     {/* {loggedIn}? <Login /> : <Register/> */}
-    
+    <Login user={user} setUser={setUser}/>
     <Header m={m}/>
     <Budget writeData={writeData} expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
     <Total input={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
@@ -113,7 +112,6 @@ switch (a.getMonth() + 1) {
     <Expenses inputs={inputs} setInputs={setInputs} />
     </div>
     </div>
-  );
-}
+  );}
 
 export default App;

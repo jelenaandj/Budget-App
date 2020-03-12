@@ -1,35 +1,67 @@
 import React, { useState } from 'react'
+import * as firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
+import "firebase/database";
 
-export default function Login() {
+export default function Login(props) {
 
-    const[username,setUsername]=useState('')
+    // let user=props.user
+    // let setUser=props.setUser
+
+    const[email,setEmail]=useState('')
     const[password,setPassword]=useState('')
 
-    const handleSubmit=()=>{
-        if(username===password){
-            setUsername()
-        }
+
+    const emailHandler=(e)=>{
+        setEmail(e.target.value)
     }
-    //login form 
-    //make login on heroku
+
+    const passwordHandler=(e)=>{
+        setPassword(e.target.value)
+    }
+    
+    const inputHandler=(e)=>{
+        e.preventDefault()
+        if(email!=='' && password!==''){
+            ///firebase authentication
+            console.log('logged in')
+            // setUser(email,password)
+            firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // [START_EXCLUDE]
+            if (errorCode === 'auth/wrong-password') {
+            alert('Wrong password.');
+            } else {
+            alert(errorMessage);
+            }
+            console.log(error);
+            // document.getElementById('quickstart-sign-in').disabled = false;
+            // [END_EXCLUDE]
+            });
+        // [END authwithemail]
+        }else{
+            alert('Please enter your password and username')
+        }
+
+    }
+    const signoutHandler=(e)=>{
+        firebase.auth().signOut();
+        console.log('signedout')
+    }
 
     return (
-        <form>
-        <input type="text" placeholder="username" required onInput={e => {
-            setUsername(e.target.value)
-        }}/>
-        <input type="password" placeholder="password" required onInput={e => {
-            setPassword(e.target.value)
-        } }/>
-        <input type="submit" value="Log in" onClick={(e) => {
-            e.preventDefault()
-            if(username!=='' && password!==''){
-                handleSubmit()
-            }else{
-                alert('Please enter your password and username')
-            }
-            
-        }} />
-    </form>
-    )
-}
+        <div>
+            <div>
+                <input type="text" placeholder="email" onChange={emailHandler}/>
+                <input type="password" placeholder="password" onChange={passwordHandler}/>
+                <input type="submit" value="Log in" onClick={inputHandler} />
+            </div>
+            <input type="submit" value="Log out" onClick={signoutHandler}/>
+        </div>
+        
+      
+    )}
+
