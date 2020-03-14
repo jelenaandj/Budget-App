@@ -36,7 +36,11 @@ const firebaseConfig = {
   };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+// firebase.initializeApp(firebaseConfig);
+
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
 
 var database = firebase.database();
 
@@ -101,7 +105,7 @@ switch (a.getMonth() + 1) {
   return (
     <div className="App">
     {/* {loggedIn}? <Login /> : <Register/> */}
-    <Login user={user} setUser={setUser}/>
+    <Login user={user} setUser={setUser} firebase={firebase}/>
     <Header m={m}/>
     <Budget writeData={writeData} expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
     <Total input={inputs.filter(inputB=> inputB.value.includes('Income'))}  />

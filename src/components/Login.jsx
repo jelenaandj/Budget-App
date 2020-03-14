@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
-import * as firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/firestore";
-import "firebase/database";
+// import * as firebase from "firebase/app";
+// import "firebase/auth";
+// import "firebase/firestore";
+// import "firebase/database";
 
 export default function Login(props) {
 
     // let user=props.user
     // let setUser=props.setUser
+    let firebase=props.firebase
 
     const[email,setEmail]=useState('')
     const[password,setPassword]=useState('')
@@ -47,10 +48,10 @@ export default function Login(props) {
         }
 
     }
-    const signoutHandler=(e)=>{
-        firebase.auth().signOut();
-        console.log('signedout')
-    }
+    // const signoutHandler=(e)=>{
+    //     firebase.auth().signOut();
+    //     console.log('signedout')
+    // }
 
     return (
         <div>
@@ -59,7 +60,7 @@ export default function Login(props) {
                 <input type="password" placeholder="password" onChange={passwordHandler}/>
                 <input type="submit" value="Log in" onClick={inputHandler} />
             </div>
-            <input type="submit" value="Log out" onClick={signoutHandler}/>
+            {/* <input type="submit" value="Log out" onClick={signoutHandler}/> */}
         </div>
         
       
