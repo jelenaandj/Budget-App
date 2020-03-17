@@ -48,12 +48,7 @@ export default function Login(props) {
         }
 
     }
-    const signoutHandler=(e)=>{
-        e.preventDefault()
-
-        firebase.auth().signOut();
-        console.log('signedout')
-    }
+    
 
     return (
         <div>
@@ -62,7 +57,7 @@ export default function Login(props) {
                 <input type="password" placeholder="password" onChange={passwordHandler}/>
                 <input type="submit" value="Log in" onClick={inputHandler} />
             </div>
-            {user&&<input type="submit" value="Log out" onClick={signoutHandler}/>}
+          
         </div>
         
       

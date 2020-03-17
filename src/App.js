@@ -24,6 +24,14 @@ function App() {
     const[user,setUser]=useState()
     // const[totalExp,setTotalExp]=useState([])
 
+    const signoutHandler=(e)=>{
+        e.preventDefault()
+
+        firebase.auth().signOut();
+        setUser('')
+        console.log('logged out')
+    }
+
 /////////////////////////FIREBASE/////////////
 const firebaseConfig = {
     apiKey: "AIzaSyAVNGZqhJbMxHXce-_YzNB0Xb0AY7xsYBs",
@@ -104,8 +112,12 @@ switch (a.getMonth() + 1) {
 
   return (
     <div className="App">
-    {/* {loggedIn}? <Login /> : <Register/> */}
-    <Login user={user} setUser={setUser} firebase={firebase}/>
+    {!user? 
+    <div>
+    <Login user={user} setUser={setUser} firebase={firebase}/> 
+    <Register user={user} setUser={setUser} firebase={firebase}/>
+    </div>
+     : <input type="submit" value="Log out" onClick={signoutHandler}/>}
     <Header m={m}/>
     <Budget writeData={writeData} expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
     <Total input={inputs.filter(inputB=> inputB.value.includes('Income'))}  />

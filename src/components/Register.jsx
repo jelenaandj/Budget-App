@@ -1,26 +1,51 @@
 import React from 'react'
 import { useState } from 'react'
 
-export default function Register() {
+export default function Register(props) {
 
-    const[name,setName]=useState('')
-    const[surname,setSurname]=useState('')
-    const[username,setUsername]=useState('')
+    let user=props.user
+    let setUser=props.setUser
+    let firebase=props.firebase
+
+    cosnt[username,setUserName]=useState('')
     const[email,setEmail]=useState('')
     const[password,setPassword]=useState('')
     const[confirmPassword,setConfirmPassword]=useState('')
-    const[issamePass,setIsSamePass]=useState('')
+
+
+    const handleUserName=(e)=>{
+        setUserName(e.target.value)
+    }
+    const handleEmail=(e)=>{
+        setEmail(e.target.value)
+    }
+    const handlePass=(e)=>{
+        setPassword(e.target.value)
+    }
+    const handleConfirmPass=(e)=>{
+        setConfirmPassword(e.target.value)
+    }
     
+    const handleRegister=(e)=>{
+        e.preventDefault()
+        if(email!=='' && password!==''&& password===confirmPassword){
+            firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // ...
+              });
+              
+        }
+    }
 
     return (
         <div>
-            <input type="text" placeholder="Name"/>
-            <input type="text" placeholder="Surname"/>
-            <input type="text" placeholder="Username" />  
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <input type="password" placeholder="Confirm Password" />
-            <input type="submit" value="Register" />
+            <input type='text' placeholder='username' onChange={handleUserName}/>
+            <input type="email" placeholder="Email" onChange={handleEmail} />
+            <input type="password" placeholder="Password" onChange={handlePass}/>
+            <input type="password" placeholder="Confirm Password" onChange={handleConfirmPass}/>
+            <input type="submit" value="Register" onClick={handleRegister}/>
         </div>
     )
 }
