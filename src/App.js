@@ -22,6 +22,7 @@ const uuidv4 = require('uuid/v4')
 function App() {
     const[inputs,setInputs]=useState([]);
     const[user,setUser]=useState()
+    
     // const[totalExp,setTotalExp]=useState([])
 
     const signoutHandler=(e)=>{
@@ -109,6 +110,7 @@ switch (a.getMonth() + 1) {
     default:
         break;
 }
+const[month,setMonth]=useState(m)
 
   return (
     <div className="App">
@@ -118,7 +120,7 @@ switch (a.getMonth() + 1) {
     <Register user={user} setUser={setUser} firebase={firebase}/>
     </div>
      : <input type="submit" value="Log out" onClick={signoutHandler}/>}
-    <Header m={m}/>
+    <Header m={m} month={month} setMonth={setMonth}/>
     <Budget writeData={writeData} expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
     <Total input={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
     <Total input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/>
