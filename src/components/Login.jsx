@@ -6,8 +6,8 @@ import React, { useState } from 'react'
 
 export default function Login(props) {
 
-    // let user=props.user
-    // let setUser=props.setUser
+    let user=props.user
+    let setUser=props.setUser
     let firebase=props.firebase
 
     const[email,setEmail]=useState('')
@@ -27,7 +27,7 @@ export default function Login(props) {
         if(email!=='' && password!==''){
             ///firebase authentication
             console.log('logged in')
-            // setUser(email,password)
+            setUser(email,password)
             firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;
@@ -48,10 +48,12 @@ export default function Login(props) {
         }
 
     }
-    // const signoutHandler=(e)=>{
-    //     firebase.auth().signOut();
-    //     console.log('signedout')
-    // }
+    const signoutHandler=(e)=>{
+        e.preventDefault()
+
+        firebase.auth().signOut();
+        console.log('signedout')
+    }
 
     return (
         <div>
@@ -60,7 +62,7 @@ export default function Login(props) {
                 <input type="password" placeholder="password" onChange={passwordHandler}/>
                 <input type="submit" value="Log in" onClick={inputHandler} />
             </div>
-            {/* <input type="submit" value="Log out" onClick={signoutHandler}/> */}
+            {user&&<input type="submit" value="Log out" onClick={signoutHandler}/>}
         </div>
         
       
