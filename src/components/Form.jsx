@@ -54,18 +54,14 @@ export default function Form(props) {
     }
 
     const handleButton=(e)=>{
-        if(month!==''){
-            console.log(month)
+        console.log(month)
             if(e.value !==''){
                 handleClick(select,text,numb)}else{
                     console.log('empty')
                 }
-        }else{
-            if(user)
-                alert('please select a month')
-        }
        
         e.preventDefault()
+
     }
 
 

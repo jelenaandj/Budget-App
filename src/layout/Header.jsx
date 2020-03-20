@@ -39,6 +39,7 @@ export default function Header(props) {
     return (
         <div>
             <h1>Budget for</h1>
+    <h1>{month}</h1>
             <Select options={options} onChange={onMonthChange} />   
 
         </div>
