@@ -124,7 +124,7 @@ const[month,setMonth]=useState(m)
     <Budget writeData={writeData} expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
     <Total input={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
     <Total input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/>
-    <Form handleClick={handleClick} inputs={inputs} setInputs={setInputs} />
+    <Form handleClick={handleClick} inputs={inputs} setInputs={setInputs} month={month} setMonth={setMonth} user={user} m={m}/>
     <div className='container'>
     <Income inputs={inputs} setInputs={setInputs}/>
     <Expenses inputs={inputs} setInputs={setInputs} />

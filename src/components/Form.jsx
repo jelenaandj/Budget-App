@@ -5,6 +5,10 @@ import Select from 'react-select'
 
 export default function Form(props) {
     let handleClick=props.handleClick
+    let month=props.month
+    let setMonth=props.setMonth
+    let user=props.user
+    let m=props.m
     // let inputs=props.inputs
 
     const options = [
@@ -50,10 +54,17 @@ export default function Form(props) {
     }
 
     const handleButton=(e)=>{
-        if(e.value !==''){
-        handleClick(select,text,numb)}else{
-            console.log('empty')
+        if(month!==''){
+            console.log(month)
+            if(e.value !==''){
+                handleClick(select,text,numb)}else{
+                    console.log('empty')
+                }
+        }else{
+            if(user)
+                alert('please select a month')
         }
+       
         e.preventDefault()
     }
 

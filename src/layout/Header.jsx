@@ -31,7 +31,8 @@ export default function Header(props) {
        if(e.value !==''){
        setMonth(e.value)
        console.log(month)}else{
-           setMonth(m)
+           alert('please choose a month')
+           
        }
    }
 
