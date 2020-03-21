@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Select from 'react-select'
-import { firestore } from 'firebase'
+// import { firestore } from 'firebase'
 
 
 
@@ -26,17 +26,6 @@ export default function Form(props) {
     
  
 
-    // const onSelectChange=(e)=>{
-    //      console.log(e)
-    //     if(e.target.value !== ''){
-    //     setSelect(e)}else{
-    //         console.log('empty')
-           
-    //     }
-
-    //     console.log(select)
-    //     console.log(options)
-    // }
     const onSelectChange=(e)=>{
         console.log(e)
        if(e.value !==''){
@@ -75,7 +64,7 @@ export default function Form(props) {
 
     const handleSave=(e)=>{
         if(user!==undefined){
-            db.collection('users').doc(user).collection(month).add({
+            db.collection('users').doc(user).collection(month).doc(month).set({
                 // type:select,
                 // description:text,
                 // amount:numb
@@ -95,14 +84,7 @@ export default function Form(props) {
        
 
     }
-    // 
-    // .then(function() {
-    //     console.log("Document successfully written!");
-    // })
-    // .catch(function(error) {
-    //     console.error("Error writing document: ", error);
-    // });
-
+    
     return (
         <div className='form' >
             <Select options={options} onChange={onSelectChange} />   
