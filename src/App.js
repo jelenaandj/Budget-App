@@ -5,6 +5,7 @@ import "firebase/auth";
 import "firebase/firestore";
 import "firebase/database";
 
+
 import './App.css';
 // import Header from './layout/Header';
 // import Content from './layout/Content';
@@ -16,7 +17,11 @@ import Budget from './components/Budget';
 import Login from './components/Login';
 import Header from './layout/Header';
 import Register from './components/Register';
+
 const uuidv4 = require('uuid/v4')
+// const firebase = require("firebase");
+// Required for side-effects
+require("firebase/firestore");
 
 
 function App() {
@@ -24,6 +29,7 @@ function App() {
     const[user,setUser]=useState()
     const[showLogin,setShowLogin]=useState(false)
     const[showRegister,setShowRegister]=useState(false)
+    
     
     // const[totalExp,setTotalExp]=useState([])
 
@@ -49,18 +55,27 @@ const firebaseConfig = {
 // Initialize Firebase
 // firebase.initializeApp(firebaseConfig);
 
+//init firebase/firestore
+// firebase.initializeApp({
+//   apiKey: "AIzaSyAVNGZqhJbMxHXce-_YzNB0Xb0AY7xsYBs",
+//   authDomain: "budget-4f776.firebaseapp.com",
+//   projectId: "budget-4f776"
+// });
+
+
+
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
   }
-
+var db = firebase.firestore();
 var database = firebase.database();
 
   // write in database
-  function writeData(total) {
-    firebase.database().ref('total/').set({
-      total: total
-    });
-  }
+  // function writeData(total) {
+  //   firebase.database().ref('total/').set({
+  //     total: total
+  //   });
+  // }
 
   const handleClick=(value,text,numb)=>{
     let tmp=[...inputs]
@@ -69,7 +84,7 @@ var database = firebase.database();
   }
 
 
-  let a = new Date;
+  let a = new Date();
   let m = '';
 
 switch (a.getMonth() + 1) {
@@ -131,10 +146,10 @@ const[month,setMonth]=useState(m)
     </div>
      : <input type="submit" value="Log out" onClick={signoutHandler}/>}
     <Header m={m} month={month} setMonth={setMonth}/>
-    <Budget writeData={writeData} expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
+    <Budget expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))} />
     <Total input={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
     <Total input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/>
-    <Form handleClick={handleClick} inputs={inputs} setInputs={setInputs} />
+    <Form handleClick={handleClick} inputs={inputs} month={month} db={db} user={user}/>
     <div className='container'>
     <Income inputs={inputs} setInputs={setInputs}/>
     <Expenses inputs={inputs} setInputs={setInputs} />

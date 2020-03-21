@@ -1,10 +1,16 @@
 import React, { useState } from 'react'
 import Select from 'react-select'
+import { firestore } from 'firebase'
 
 
 
 export default function Form(props) {
     let handleClick=props.handleClick
+    let db=props.db
+    let month=props.month
+    let user=props.user
+    let inputs=props.inputs
+    
    
     
     // let inputs=props.inputs
@@ -17,6 +23,7 @@ export default function Form(props) {
     const[select,setSelect]=useState('')
     const[text,setText]=useState()
     const[numb,setNumb]=useState()
+    
  
 
     // const onSelectChange=(e)=>{
@@ -36,19 +43,22 @@ export default function Form(props) {
        setSelect(e.value)
        console.log(select)}else{
            console.log('empty')
+           alert('Please input data')
        }
    }
 
     const onTextInput=(e)=>{
-        if(e.target.value !== ''){
+        if(e.target.value !== undefined){
         setText(e.target.value)}else{
-        console.log('empty')}
+        console.log('empty')
+        alert('Please input data')}
 
     }
     const onNumbInput=(e)=>{
-        if(e.target.value !== ''){
+        if(e.target.value !== undefined){
             setNumb(e.target.value)}else{
-            console.log('empty')}
+            console.log('empty')
+            alert('Please input data')}
     }
 
     const handleButton=(e)=>{
@@ -56,12 +66,42 @@ export default function Form(props) {
             if(e.value !==''){
                 handleClick(select,text,numb)}else{
                     console.log('empty')
+                    
                 }
        
         e.preventDefault()
 
     }
 
+    const handleSave=(e)=>{
+        if(user!==undefined){
+            db.collection('users').doc(user).collection(month).add({
+                // type:select,
+                // description:text,
+                // amount:numb
+                inputs
+               
+            }).then(function() {
+                    console.log("Document successfully written!");
+                })
+                .catch(function(error) {
+                    console.error("Error writing document: ", error);
+                });
+            console.log(user)
+            console.log(month)
+        }else{
+            alert('Please Sign in or Register')
+        }
+       
+
+    }
+    // 
+    // .then(function() {
+    //     console.log("Document successfully written!");
+    // })
+    // .catch(function(error) {
+    //     console.error("Error writing document: ", error);
+    // });
 
     return (
         <div className='form' >
@@ -70,6 +110,8 @@ export default function Form(props) {
             <input type='text' onChange={onNumbInput} />
 
             <button onClick={handleButton}>Submit</button>
+            <button onClick={handleSave}>Save</button>
+
         </div>
     )
 }

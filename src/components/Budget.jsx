@@ -5,8 +5,8 @@ export default function Budget(props) {
 
     let income=props.income
     let expense=props.expense
-    let writeData=props.writeData
-
+    // let writeData=props.writeData
+   
 //   console.log('numb',income.numb)
     const[budg,setBudg]=useState(0)
 
@@ -20,12 +20,12 @@ useEffect(()=>{
     let totalExp=0
     expense.forEach(element => {
         totalExp+=parseInt(element.numb)
-    });
+    },[income,expense]);
     // console.log('total',totalExp)
     let tmp=totalInc-totalExp
     
  setBudg(tmp)
- writeData(tmp)
+//  writeData(tmp)
 },)
 
     

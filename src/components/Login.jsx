@@ -6,7 +6,7 @@ import React, { useState } from 'react'
 
 export default function Login(props) {
 
-    let user=props.user
+    // let user=props.user
     let setUser=props.setUser
     let firebase=props.firebase
 
