@@ -7,6 +7,9 @@ export default function Header(props) {
     let m=props.m
     let month=props.month
     let setMonth=props.setMonth
+    let user=props.user
+    let db=props.db
+    let inputs=props.inputs
 
     const options = [
         { value: 'January', label: 'January' },
@@ -29,12 +32,28 @@ export default function Header(props) {
     const onMonthChange=(e)=>{
         console.log(e)
        if(e.value !==''){
-       setMonth(e.value)
-       console.log(month)}else{
-           alert('please choose a month')
-           
-       }
-   }
+        setMonth(e.value)
+       console.log(month)
+       console.log(e.value)
+
+    ///get data form firestore//
+    db.collection('users').doc(user).collection(e.value).doc(e.value).get()
+    .then(function(doc) {
+        if (doc.exists) {
+        console.log("Document data:", doc.data());
+        }else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+            }
+            })
+        .catch(function(error) {
+            console.error("Error getting document: ", error);
+        });
+        ////
+            }else{
+            alert('please choose a month')   
+        }
+    }
 
     return (
         <div>

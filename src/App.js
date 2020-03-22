@@ -29,6 +29,11 @@ function App() {
     const[user,setUser]=useState()
     const[showLogin,setShowLogin]=useState(false)
     const[showRegister,setShowRegister]=useState(false)
+    const[getIncome,setGetIncome]=useState()
+    const[getExpenses,setGetExpenses]=useState()
+    const[getTotal,setGetTotal]=useState()
+
+
     
     
     // const[totalExp,setTotalExp]=useState([])
@@ -68,7 +73,7 @@ if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
   }
 var db = firebase.firestore();
-var database = firebase.database();
+// var database = firebase.database();
 
   // write in database
   // function writeData(total) {
@@ -82,7 +87,6 @@ var database = firebase.database();
     tmp.push({value,text,numb,id:uuidv4()})
     setInputs(tmp)
   }
-
 
   let a = new Date();
   let m = '';
@@ -129,6 +133,7 @@ switch (a.getMonth() + 1) {
 }
 const[month,setMonth]=useState(m)
 
+
   return (
     <div className="App">
     {!user? 
@@ -145,7 +150,7 @@ const[month,setMonth]=useState(m)
     <Register user={user} setUser={setUser} firebase={firebase}/> : console.log('notreggisterd')}
     </div>
      : <input type="submit" value="Log out" onClick={signoutHandler}/>}
-    <Header m={m} month={month} setMonth={setMonth}/>
+    <Header m={m} inputs={inputs} db={db} user={user} month={month} setMonth={setMonth} setGetIncome={setGetIncome} setGetExpenses={setGetExpenses} setGetTotal={setGetTotal} />
     <Budget expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))} />
     <Total input={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
     <Total input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/>

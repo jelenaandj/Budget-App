@@ -27,25 +27,25 @@ export default function Form(props) {
  
 
     const onSelectChange=(e)=>{
-        console.log(e)
        if(e.value !==''){
        setSelect(e.value)
-       console.log(select)}else{
-           console.log('empty')
-           alert('Please input data')
+        }else{
+        alert('Please input data')
        }
    }
 
     const onTextInput=(e)=>{
         if(e.target.value !== undefined){
-        setText(e.target.value)}else{
+        setText(e.target.value)
+        }else{
         console.log('empty')
         alert('Please input data')}
 
     }
     const onNumbInput=(e)=>{
         if(e.target.value !== undefined){
-            setNumb(e.target.value)}else{
+            setNumb(e.target.value)
+            }else{
             console.log('empty')
             alert('Please input data')}
     }
@@ -53,7 +53,8 @@ export default function Form(props) {
     const handleButton=(e)=>{
         
             if(e.value !==''){
-                handleClick(select,text,numb)}else{
+                handleClick(select,text,numb)
+                }else{
                     console.log('empty')
                     
                 }
