@@ -39,6 +39,7 @@ function App() {
 
         firebase.auth().signOut();
         setUser('')
+        setInputs([])
         console.log('logged out')
     }
 
