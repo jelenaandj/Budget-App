@@ -29,6 +29,8 @@ function App() {
     const[user,setUser]=useState()
     const[showLogin,setShowLogin]=useState(false)
     const[showRegister,setShowRegister]=useState(false)
+    const[budg,setBudg]=useState(0)
+    const[prevBudg,setPrevBudg]=useState(0)
     
     // const[totalExp,setTotalExp]=useState([])
 
@@ -144,11 +146,11 @@ const[month,setMonth]=useState(m)
     <Register user={user} setUser={setUser} firebase={firebase}/> : console.log('notreggisterd')}
     </div>
      : <input type="submit" value="Log out" onClick={signoutHandler}/>}
-    <Header m={m} inputs={inputs} setInputs={setInputs} db={db} user={user} month={month} setMonth={setMonth}  />
-    <Budget  expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))} />
+    <Header m={m} inputs={inputs} setInputs={setInputs} db={db} user={user} month={month} setMonth={setMonth} setPrevBudg={setPrevBudg}/>
+    <Budget prevBudg={prevBudg} setPrevBudg={setPrevBudg} expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))} budg={budg} setBudg={setBudg} />
     <Total  input={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
     <Total  input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/>
-    <Form handleClick={handleClick} inputs={inputs} month={month} db={db} user={user}/>
+    <Form handleClick={handleClick} inputs={inputs} month={month} db={db} user={user} budg={budg} />
     <div className='container'>
     <Income  inputs={inputs} setInputs={setInputs}/>
     <Expenses  inputs={inputs} setInputs={setInputs} />

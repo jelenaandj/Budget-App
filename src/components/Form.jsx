@@ -10,6 +10,7 @@ export default function Form(props) {
     let month=props.month
     let user=props.user
     let inputs=props.inputs
+    let budg=props.budg
     
    
     
@@ -63,7 +64,8 @@ export default function Form(props) {
     const handleSave=(e)=>{
         if(user!==undefined){
             db.collection('users').doc(user).collection(month).doc(month).set({
-                inputs
+                inputs,
+                budg
             }).then(function() {
                     console.log("Document successfully written!");
                 })

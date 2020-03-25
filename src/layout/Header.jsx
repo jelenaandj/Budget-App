@@ -11,21 +11,22 @@ export default function Header(props) {
     let db=props.db
     let inputs=props.inputs
     let setInputs=props.setInputs
+    let setPrevBudg=props.setPrevBudg
 
     
     const options = [
-        { value: 'January', label: 'January' },
-        { value: 'February', label: 'February' },
-        { value: 'March', label: 'March' },
-        { value: 'April', label: 'April' },
-        { value: 'May', label: 'May' },
-        { value: 'Jun', label: 'Jun' },
-        { value: 'July', label: 'July' },
-        { value: 'August', label: 'August' },
-        { value: 'September', label: 'September' },
-        { value: 'Octobar', label: 'Octobar' },
-        { value: 'November', label: 'November' },
-        { value: 'December', label: 'December' }
+        { value: 'January', label: 'January', prevMonth:'January' },
+        { value: 'February', label: 'February', prevMonth:'January' },
+        { value: 'March', label: 'March', prevMonth:'February' },
+        { value: 'April', label: 'April', prevMonth:'March'  },
+        { value: 'May', label: 'May', prevMonth:'April'  },
+        { value: 'Jun', label: 'Jun', prevMonth:'May'  },
+        { value: 'July', label: 'July', prevMonth:'Jun'  },
+        { value: 'August', label: 'August', prevMonth:'July'  },
+        { value: 'September', label: 'September', prevMonth:'August'  },
+        { value: 'Octobar', label: 'Octobar', prevMonth:'September'  },
+        { value: 'November', label: 'November', prevMonth:'Octobar'  },
+        { value: 'December', label: 'December', prevMonth:'November'  }
       ]
 
 
@@ -35,7 +36,7 @@ export default function Header(props) {
         if(e.value !==''){
         setMonth(e.value)
         console.log(month)
-        console.log(e.value)
+        console.log(e.label)
 
     ///get data form firestore//
         db.collection('users').doc(user).collection(e.value).doc(e.value).get()
@@ -54,7 +55,26 @@ export default function Header(props) {
         .catch(function(error) {
             console.error("Error getting document: ", error);
         });
-        ////
+
+        ////////prev month
+        db.collection('users').doc(user).collection(e.prevMonth).doc(e.prevMonth).get()
+        .then(function(doc) {
+        if (doc.exists) {
+        //
+        setPrevBudg(doc.data().budg)
+
+        console.log("Document data:", doc.data().budg);
+        }else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+        setPrevBudg('No data available')
+            }
+            })
+        .catch(function(error) {
+            console.error("Error getting document: ", error);
+        });
+        ///////prev month
+
             }else{
             alert('please choose a month')   
         }}else{
