@@ -10,8 +10,7 @@ export default function Header(props) {
     let user=props.user
     let db=props.db
     let inputs=props.inputs
-    let setGetData=props.setGetData
-    let getData=props.getData
+    let setInputs=props.setInputs
 
     
     const options = [
@@ -29,22 +28,23 @@ export default function Header(props) {
         { value: 'December', label: 'December' }
       ]
 
-   
-    
 
     const onMonthChange=(e)=>{
         console.log(e)
-       if(e.value !==''){
+        if(user!==undefined){
+        if(e.value !==''){
         setMonth(e.value)
-       console.log(month)
-       console.log(e.value)
+        setInputs(0)
+        console.log(month)
+        console.log(e.value)
 
     ///get data form firestore//
-    db.collection('users').doc(user).collection(e.value).doc(e.value).get()
-    .then(function(doc) {
+        db.collection('users').doc(user).collection(e.value).doc(e.value).get()
+        .then(function(doc) {
         if (doc.exists) {
-        setGetData(doc.data())
-        console.log(getData)
+        //
+        setInputs(doc.data().inputs)
+
         console.log("Document data:", doc.data());
         }else {
         // doc.data() will be undefined in this case
@@ -57,6 +57,9 @@ export default function Header(props) {
         ////
             }else{
             alert('please choose a month')   
+        }}else{
+            alert('Please Log in to select a specific Month')
+            setMonth(m)
         }
     }
 
