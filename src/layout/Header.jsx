@@ -34,7 +34,6 @@ export default function Header(props) {
         if(user!==undefined){
         if(e.value !==''){
         setMonth(e.value)
-        setInputs(0)
         console.log(month)
         console.log(e.value)
 
@@ -49,6 +48,7 @@ export default function Header(props) {
         }else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
+        setInputs([])
             }
             })
         .catch(function(error) {
