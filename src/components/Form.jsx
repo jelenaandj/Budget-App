@@ -11,7 +11,6 @@ export default function Form(props) {
     let user=props.user
     let inputs=props.inputs
     let budg=props.budg
-    
    
     
     // let inputs=props.inputs
@@ -36,34 +35,35 @@ export default function Form(props) {
    }
 
     const onTextInput=(e)=>{
-        if(e.target.value !== undefined){
+        if(e.target.value !== undefined ){
         setText(e.target.value)
         }else{
         console.log('empty')
-        alert('Please input data')}
+        alert('Please enter correct data format')}
 
     }
     const onNumbInput=(e)=>{
-        if(e.target.value !== undefined){
+        if(e.target.value !== undefined ){
             setNumb(e.target.value)
             }else{
             console.log('empty')
-            alert('Please input data')}
+            alert('Please enter correct data format')}
     }
 
     const handleButton=(e)=>{
         
-            if(e.value !==''){
+            if(text !=='' && numb !=='' && !isNaN(numb)){
                 handleClick(select,text,numb)
                 }else{
-                    console.log('empty')      
+                    console.log('empty') 
+                    alert('Please enter correct data format')     
                 }
         e.preventDefault()
     }
 
     const handleSave=(e)=>{
-        if(user!==undefined){
-            db.collection('users').doc(user).collection(month).doc(month).set({
+        if(user!==null){
+            db.collection('users').doc(user.email).collection(month).doc(month).set({
                 inputs,
                 budg
             }).then(function() {

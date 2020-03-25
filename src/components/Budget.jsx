@@ -8,7 +8,7 @@ export default function Budget(props) {
     let budg=props.budg
     let setBudg=props.setBudg
     let prevBudg=props.prevBudg
-    let setPrevBudg=props.setPrevBudg
+    // let setPrevBudg=props.setPrevBudg
     // let writeData=props.writeData
    
 //   console.log('numb',income.numb)
@@ -29,7 +29,7 @@ useEffect(()=>{
     },[income,expense]);
     // console.log('total',totalExp)
     let tmp=totalInc-totalExp
-if(prevBudg ===undefined){
+if(isNaN(prevBudg)){
     setBudg(tmp)
 }else{
     setBudg(tmp+parseInt(prevBudg))

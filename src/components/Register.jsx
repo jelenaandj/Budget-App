@@ -7,15 +7,15 @@ export default function Register(props) {
     let setUser=props.setUser
     let firebase=props.firebase
 
-    // cosnt[username,setUserName]=useState('')
+    const[username,setUserName]=useState('')
     const[email,setEmail]=useState('')
     const[password,setPassword]=useState('')
     const[confirmPassword,setConfirmPassword]=useState('')
 
 
-    // const handleUserName=(e)=>{
-    //     setUserName(e.target.value)
-    // }
+    const handleUserName=(e)=>{
+        setUserName(e.target.value)
+    }
     const handleEmail=(e)=>{
         setEmail(e.target.value)
     }
@@ -29,7 +29,8 @@ export default function Register(props) {
     const handleRegister=(e)=>{
         e.preventDefault()
         if(email!=='' && password!==''&& password===confirmPassword){
-            setUser(email,password)
+            setUser(firebase.auth().currentUser)
+
             console.log(user)
             firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
                 // Handle Errors here.
@@ -46,7 +47,7 @@ export default function Register(props) {
 
     return (
         <div>
-            {/* <input type='text' placeholder='username' onChange={handleUserName}/> */}
+            <input type='text' placeholder='username' onChange={handleUserName}/>
             <input type="email" placeholder="Email" onChange={handleEmail} />
             <input type="password" placeholder="Password" onChange={handlePass}/>
             <input type="password" placeholder="Confirm Password" onChange={handleConfirmPass}/>

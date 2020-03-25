@@ -38,11 +38,18 @@ function App() {
         e.preventDefault()
 
         firebase.auth().signOut();
-        setUser('')
         setInputs([])
+        setUser(undefined)
+        setShowLogin(false)
+        setShowRegister(false)
         console.log('logged out')
     }
-
+/////////
+if (user != null) {
+  
+  console.log (user.email)
+  
+}
 /////////////////////////FIREBASE/////////////
 const firebaseConfig = {
     apiKey: "AIzaSyAVNGZqhJbMxHXce-_YzNB0Xb0AY7xsYBs",
@@ -130,10 +137,10 @@ switch (a.getMonth() + 1) {
 }
 const[month,setMonth]=useState(m)
 
-
+console.log(user)
   return (
     <div className="App">
-    {!user? 
+    {user===undefined? 
     <div>
 
       {!showLogin&&
@@ -144,11 +151,11 @@ const[month,setMonth]=useState(m)
     {!showRegister&&
     <input type='submit' value='Register' onClick={(e)=>showRegister? setShowRegister(false):setShowRegister(true)}/>}
     {showRegister?
-    <Register user={user} setUser={setUser} firebase={firebase}/> : console.log('notreggisterd')}
+    <Register user={user} setUser={setUser} firebase={firebase}/> : console.log('not reggistered')}
     </div>
-     : <input type="submit" value="Log out" onClick={signoutHandler}/>}
+     : <input type="submit" value="Log out" onClick={signoutHandler} />}
     <Header m={m} inputs={inputs} setInputs={setInputs} db={db} user={user} month={month} setMonth={setMonth} setPrevBudg={setPrevBudg}/>
-    <Budget prevBudg={prevBudg} setPrevBudg={setPrevBudg} expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))} budg={budg} setBudg={setBudg} />
+    <Budget prevBudg={prevBudg} expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))} budg={budg} setBudg={setBudg} />
     <Total  input={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
     <Total  input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/>
     <Form handleClick={handleClick} inputs={inputs} month={month} db={db} user={user} budg={budg} />

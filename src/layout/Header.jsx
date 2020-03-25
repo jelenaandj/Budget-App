@@ -32,14 +32,14 @@ export default function Header(props) {
 
     const onMonthChange=(e)=>{
         console.log(e)
-        if(user!==undefined){
+        if(user!==null){
         if(e.value !==''){
         setMonth(e.value)
         console.log(month)
         console.log(e.label)
-
+        let email=user.email
     ///get data form firestore//
-        db.collection('users').doc(user).collection(e.value).doc(e.value).get()
+        db.collection('users').doc(user.email).collection(e.value).doc(e.value).get()
         .then(function(doc) {
         if (doc.exists) {
         //
@@ -57,7 +57,7 @@ export default function Header(props) {
         });
 
         ////////prev month
-        db.collection('users').doc(user).collection(e.prevMonth).doc(e.prevMonth).get()
+        db.collection('users').doc(user.email).collection(e.prevMonth).doc(e.prevMonth).get()
         .then(function(doc) {
         if (doc.exists) {
         //

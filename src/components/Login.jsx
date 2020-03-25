@@ -27,7 +27,8 @@ export default function Login(props) {
         if(email!=='' && password!==''){
             ///firebase authentication
             console.log('logged in')
-            setUser(email,password)
+            // setUser(email,password)
+            setUser(firebase.auth().currentUser)
             firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;
