@@ -10,7 +10,10 @@ export default function Header(props) {
     let user=props.user
     let db=props.db
     let inputs=props.inputs
+    let setGetData=props.setGetData
+    let getData=props.getData
 
+    
     const options = [
         { value: 'January', label: 'January' },
         { value: 'February', label: 'February' },
@@ -40,6 +43,8 @@ export default function Header(props) {
     db.collection('users').doc(user).collection(e.value).doc(e.value).get()
     .then(function(doc) {
         if (doc.exists) {
+        setGetData(doc.data())
+        console.log(getData)
         console.log("Document data:", doc.data());
         }else {
         // doc.data() will be undefined in this case

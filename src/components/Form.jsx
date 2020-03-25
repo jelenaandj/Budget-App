@@ -55,22 +55,15 @@ export default function Form(props) {
             if(e.value !==''){
                 handleClick(select,text,numb)
                 }else{
-                    console.log('empty')
-                    
+                    console.log('empty')      
                 }
-       
         e.preventDefault()
-
     }
 
     const handleSave=(e)=>{
         if(user!==undefined){
             db.collection('users').doc(user).collection(month).doc(month).set({
-                // type:select,
-                // description:text,
-                // amount:numb
                 inputs
-               
             }).then(function() {
                     console.log("Document successfully written!");
                 })

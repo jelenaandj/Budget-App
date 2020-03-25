@@ -29,12 +29,7 @@ function App() {
     const[user,setUser]=useState()
     const[showLogin,setShowLogin]=useState(false)
     const[showRegister,setShowRegister]=useState(false)
-    const[getIncome,setGetIncome]=useState()
-    const[getExpenses,setGetExpenses]=useState()
-    const[getTotal,setGetTotal]=useState()
-
-
-    
+    const[getData, setGetData]=useState(0)
     
     // const[totalExp,setTotalExp]=useState([])
 
@@ -150,14 +145,14 @@ const[month,setMonth]=useState(m)
     <Register user={user} setUser={setUser} firebase={firebase}/> : console.log('notreggisterd')}
     </div>
      : <input type="submit" value="Log out" onClick={signoutHandler}/>}
-    <Header m={m} inputs={inputs} db={db} user={user} month={month} setMonth={setMonth} setGetIncome={setGetIncome} setGetExpenses={setGetExpenses} setGetTotal={setGetTotal} />
-    <Budget expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))} />
-    <Total input={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
-    <Total input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/>
+    <Header m={m} inputs={inputs} db={db} user={user} month={month} setMonth={setMonth} setGetData={setGetData} getData={getData} />
+    <Budget getData={getData} expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))} />
+    <Total getData={getData} input={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
+    <Total getData={getData} input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/>
     <Form handleClick={handleClick} inputs={inputs} month={month} db={db} user={user}/>
     <div className='container'>
-    <Income inputs={inputs} setInputs={setInputs}/>
-    <Expenses inputs={inputs} setInputs={setInputs} />
+    <Income getData={getData} inputs={inputs} setInputs={setInputs}/>
+    <Expenses getData={getData} inputs={inputs} setInputs={setInputs} />
     </div>
     </div>
   );}
