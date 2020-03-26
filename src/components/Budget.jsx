@@ -30,7 +30,7 @@ useEffect(()=>{
     // console.log('total',totalExp)
     let tmp=totalInc-totalExp
 if(prevBudg !== 'number'){
-    setBudg(tmp)
+    setBudg(tmp+prevBudg)
 }else{
     setBudg(tmp+prevBudg)
     console.log('budg',budg)

@@ -70,7 +70,7 @@ export default function Header(props) {
         }else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
-        setPrevBudg('No data Available')
+        setPrevBudg(0)
             }
             })
         .catch(function(error) {
@@ -78,7 +78,7 @@ export default function Header(props) {
         });
         // /prev month
         }else{
-            setPrevBudg('No data Available')
+            setPrevBudg(0)
         }
 
             }else{

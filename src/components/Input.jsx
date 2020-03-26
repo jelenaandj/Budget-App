@@ -7,7 +7,7 @@ export default function Input(props) {
     // let id=props.inputB.index
     let setInputs=props.setInputs
 
-    console.log(inputB)
+    // console.log(inputB)
 
     const handleDelete=(id)=>{
         if(inputs.length !==0){
