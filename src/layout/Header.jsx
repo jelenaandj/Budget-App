@@ -12,10 +12,11 @@ export default function Header(props) {
     let inputs=props.inputs
     let setInputs=props.setInputs
     let setPrevBudg=props.setPrevBudg
+    let prevBudg=props.prevBudg
 
     
     const options = [
-        { value: 'January', label: 'January', prevMonth:'January' },
+        { value: 'January', label: 'January',},
         { value: 'February', label: 'February', prevMonth:'January' },
         { value: 'March', label: 'March', prevMonth:'February' },
         { value: 'April', label: 'April', prevMonth:'March'  },
@@ -32,7 +33,7 @@ export default function Header(props) {
 
     const onMonthChange=(e)=>{
         console.log(e)
-        if(user!==undefined){
+        if(user!==undefined && user !== null){
         if(e.value !==''){
         setMonth(e.value)
         console.log(month)
@@ -55,25 +56,30 @@ export default function Header(props) {
         .catch(function(error) {
             console.error("Error getting document: ", error);
         });
-
+        if(e.prevMonth!==undefined){
         ////////prev month
+        // e.prevMonth !==undefined ?
         db.collection('users').doc(user.email).collection(e.prevMonth).doc(e.prevMonth).get()
         .then(function(doc) {
         if (doc.exists) {
         //
         setPrevBudg(doc.data().budg)
+        console.log(prevBudg)
 
         console.log("Document data:", doc.data().budg);
         }else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
-        setPrevBudg('No data available')
+        setPrevBudg('No data Available')
             }
             })
         .catch(function(error) {
             console.error("Error getting document: ", error);
         });
-        ///////prev month
+        // /prev month
+        }else{
+            setPrevBudg('No data Available')
+        }
 
             }else{
             alert('please choose a month')   

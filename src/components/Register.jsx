@@ -6,6 +6,7 @@ export default function Register(props) {
     let user=props.user
     let setUser=props.setUser
     let firebase=props.firebase
+    let db=props.db
 
     const[username,setUserName]=useState('')
     const[email,setEmail]=useState('')
@@ -15,6 +16,7 @@ export default function Register(props) {
 
     const handleUserName=(e)=>{
         setUserName(e.target.value)
+        console.log(username)
     }
     const handleEmail=(e)=>{
         setEmail(e.target.value)
@@ -38,12 +40,29 @@ export default function Register(props) {
                 var errorMessage = error.message;
                 // ...
               });
-              
               alert('You have successfully Registered')
+           
         }else{
             alert('please confirm the password')
         }
-    }
+        
+    } ///
+     if(user) {
+    db.collection('users').doc(user.email).collection('personalInfo').doc(username).add({
+        username
+    }).then(function() {
+            console.log("Username successfully written!");
+        })
+        .catch(function(error) {
+            console.error("Error writing Username: ", error);
+        });
+    console.log(user)
+    console.log(username)
+     }else{
+        console.log(user)
+     }
+   
+    ////
 
     return (
         <div>

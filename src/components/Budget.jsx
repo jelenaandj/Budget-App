@@ -29,10 +29,14 @@ useEffect(()=>{
     },[income,expense]);
     // console.log('total',totalExp)
     let tmp=totalInc-totalExp
-if(isNaN(prevBudg)){
+if(prevBudg !== 'number'){
     setBudg(tmp)
 }else{
-    setBudg(tmp+parseInt(prevBudg))
+    setBudg(tmp+prevBudg)
+    console.log('budg',budg)
+    console.log('prevBudg',prevBudg)
+    console.log('tmp',tmp)
+
 }
 
 //  writeData(tmp)/////////
@@ -44,7 +48,7 @@ if(isNaN(prevBudg)){
     return (
         <div>
         <div>
-            Previous Budget:{prevBudg}
+            Budget from the previous Month:{prevBudg}
         </div>
         <div>
             Current Budget: {budg}

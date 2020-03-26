@@ -151,13 +151,13 @@ console.log(user)
     {!showRegister&&
     <input type='submit' value='Register' onClick={(e)=>showRegister? setShowRegister(false):setShowRegister(true)}/>}
     {showRegister?
-    <Register user={user} setUser={setUser} firebase={firebase}/> : console.log('not reggistered')}
+    <Register db={db} user={user} setUser={setUser} firebase={firebase}/> : console.log('not reggistered')}
     </div>
      : <input type="submit" value="Log out" onClick={signoutHandler} />}
-    <Header m={m} inputs={inputs} setInputs={setInputs} db={db} user={user} month={month} setMonth={setMonth} setPrevBudg={setPrevBudg}/>
+    <Header m={m} prevBudg={prevBudg} inputs={inputs} setInputs={setInputs} db={db} user={user} month={month} setMonth={setMonth} setPrevBudg={setPrevBudg}/>
     <Budget prevBudg={prevBudg} expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))} budg={budg} setBudg={setBudg} />
-    <Total  input={inputs.filter(inputB=> inputB.value.includes('Income'))}  />
-    <Total  input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/>
+    <label>Income</label><Total  input={inputs.filter(inputB=> inputB.value.includes('Income'))}/>
+    <label>Expense</label><Total  input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/>
     <Form handleClick={handleClick} inputs={inputs} month={month} db={db} user={user} budg={budg} />
     <div className='container'>
     <Income  inputs={inputs} setInputs={setInputs}/>

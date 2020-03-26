@@ -74,6 +74,8 @@ export default function Form(props) {
                 });
             console.log(user)
             console.log(month)
+            console.log(budg)
+
         }else{
             alert('Please Sign in or Register')
         }
