@@ -30,7 +30,7 @@ export default function Register(props) {
         e.preventDefault()
         if(email!=='' && password!==''&& password===confirmPassword){
             setUser(firebase.auth().currentUser)
-
+            
             console.log(user)
             firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
                 // Handle Errors here.
@@ -39,7 +39,7 @@ export default function Register(props) {
                 // ...
               });
               
-              
+              alert('You have successfully Registered')
         }else{
             alert('please confirm the password')
         }

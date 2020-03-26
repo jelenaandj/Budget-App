@@ -62,7 +62,7 @@ export default function Form(props) {
     }
 
     const handleSave=(e)=>{
-        if(user!==null){
+        if(user!==undefined){
             db.collection('users').doc(user.email).collection(month).doc(month).set({
                 inputs,
                 budg

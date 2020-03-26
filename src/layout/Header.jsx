@@ -32,7 +32,7 @@ export default function Header(props) {
 
     const onMonthChange=(e)=>{
         console.log(e)
-        if(user!==null){
+        if(user!==undefined){
         if(e.value !==''){
         setMonth(e.value)
         console.log(month)
@@ -78,8 +78,9 @@ export default function Header(props) {
             }else{
             alert('please choose a month')   
         }}else{
-            alert('Please Log in to select a specific Month')
             setMonth(m)
+            alert('Please Log in to select a specific Month')
+            
         }
     }
 
