@@ -48,6 +48,10 @@ function App() {
 if (user != null) {
   
   console.log (user.email)
+  ///
+     
+  
+////
   
 }
 /////////////////////////FIREBASE/////////////

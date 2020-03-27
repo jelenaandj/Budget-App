@@ -33,9 +33,9 @@ if(prevBudg !== 'number'){
     setBudg(tmp+prevBudg)
 }else{
     setBudg(tmp+prevBudg)
-    console.log('budg',budg)
-    console.log('prevBudg',prevBudg)
-    console.log('tmp',tmp)
+    // console.log('budg',budg)
+    // console.log('prevBudg',prevBudg)
+    // console.log('tmp',tmp)
 
 }
 

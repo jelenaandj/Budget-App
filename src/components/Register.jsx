@@ -41,29 +41,27 @@ export default function Register(props) {
                 // ...
               });
               alert('You have successfully Registered')
-           
+              if(username!==undefined){
+              db.collection('users').doc(email).collection('personalInfo').doc('username').set({
+                username
+            }).then(function() {
+                    console.log("Username successfully written!");
+                })
+                .catch(function(error) {
+                    console.error("Error writing Username: ", error);
+                });
+            console.log(user)
+            console.log(username)}else{
+                console.log('no user')
+            }
+            
+            
+             
         }else{
             alert('please confirm the password')
         }
         
-    } ///
-     if(user) {
-    db.collection('users').doc(user.email).collection('personalInfo').doc(username).add({
-        username
-    }).then(function() {
-            console.log("Username successfully written!");
-        })
-        .catch(function(error) {
-            console.error("Error writing Username: ", error);
-        });
-    console.log(user)
-    console.log(username)
-     }else{
-        console.log(user)
-     }
-   
-    ////
-
+    } 
     return (
         <div>
             <input type='text' placeholder='username' onChange={handleUserName}/>
