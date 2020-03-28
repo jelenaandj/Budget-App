@@ -41,7 +41,7 @@ export default function Header(props) {
         console.log(month)
         console.log(e.label)
     ///get data form firestore//
-        db.collection('users').doc(email).collection(e.value).doc(e.value).get()
+        db.collection('users').doc(email).collection('months').doc(e.value).get()
         .then(function(doc) {
         if (doc.exists) {
         //
@@ -60,7 +60,7 @@ export default function Header(props) {
         if(e.prevMonth!==undefined){
         ////////prev month
         // e.prevMonth !==undefined ?
-        db.collection('users').doc(email).collection(e.prevMonth).doc(e.prevMonth).get()
+        db.collection('users').doc(email).collection('months').doc(e.prevMonth).get()
         .then(function(doc) {
         if (doc.exists) {
         //
