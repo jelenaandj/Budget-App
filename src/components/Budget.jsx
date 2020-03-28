@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
 
 export default function Budget(props) {
@@ -38,13 +38,7 @@ if(prevBudg !== 'number'){
     // console.log('tmp',tmp)
 
 }
-
-//  writeData(tmp)/////////
-},)
-
-
-
-    
+},) 
     return (
         <div>
         <div>

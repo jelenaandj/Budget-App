@@ -24,8 +24,6 @@ export default function Form(props) {
     const[text,setText]=useState()
     const[numb,setNumb]=useState()
     
- 
-
     const onSelectChange=(e)=>{
        if(e.value !==''){
        setSelect(e.value)
@@ -38,7 +36,7 @@ export default function Form(props) {
         if(e.target.value !== undefined ){
         setText(e.target.value)
         }else{
-        console.log('empty')
+        // console.log('empty')
         alert('Please enter correct data format')}
 
     }
@@ -46,7 +44,7 @@ export default function Form(props) {
         if(e.target.value !== undefined ){
             setNumb(e.target.value)
             }else{
-            console.log('empty')
+            // console.log('empty')
             alert('Please enter correct data format')}
     }
 
@@ -55,7 +53,7 @@ export default function Form(props) {
             if(text !=='' && numb !=='' && !isNaN(numb)){
                 handleClick(select,text,numb)
                 }else{
-                    console.log('empty') 
+                    // console.log('empty') 
                     alert('Please enter correct data format')     
                 }
         e.preventDefault()
@@ -72,15 +70,13 @@ export default function Form(props) {
                 .catch(function(error) {
                     console.error("Error writing document: ", error);
                 });
-            console.log(user)
-            console.log(month)
-            console.log(budg)
+            // console.log(user)
+            // console.log(month)
+            // console.log(budg)
 
         }else{
             alert('Please Sign in or Register')
         }
-       
-
     }
     
     return (

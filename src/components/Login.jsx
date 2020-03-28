@@ -9,18 +9,10 @@ export default function Login(props) {
     // let user=props.user
     let setUser=props.setUser
     let firebase=props.firebase
-    let username=props.userName
-    let db=props.db
     let email=props.email
     let setEmail=props.setEmail
     let handleUserNameData=props.handleUserNameData
-
-
-    // const[email,setEmail]=useState('')
     const[password,setPassword]=useState('')
-    // const[userData,setUserData]=useState('')
-
-
 
     const emailHandler=(e)=>{
         setEmail(e.target.value)
@@ -40,8 +32,6 @@ export default function Login(props) {
             firebase.auth().signInWithEmailAndPassword(email, password).then(function(user) {
                 // user signed in
                 handleUserNameData()
-             
-            
              }).catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;
@@ -53,36 +43,11 @@ export default function Login(props) {
             alert(errorMessage);
             }
             console.log(error);
-            // document.getElementById('quickstart-sign-in').disabled = false;
-            // [END_EXCLUDE]
             });
-            /////
-            // if(email !=='' && username !=='')
-            // db.collection('users').doc(email).collection('personalInfo').doc(username).get()
-            // .then(function(doc) {
-            // if (doc.exists) {
-            // //
-            // setUserData(doc.data().username)
-            // console.log(userData)
-
-            // console.log("Document data:", doc.data());
-            // }else {
-            // // doc.data() will be undefined in this case
-            // setUserData(email)
-            //     }
-            //     })
-            // .catch(function(error) {
-            //     console.error("Error getting document: ", error);
-            // });
-                ////
-            // [END authwithemail]
             }else{
                 alert('Please enter your password and username')
             }
-
     }
-    
-
     return (
         <div>
             <div>

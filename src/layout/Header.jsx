@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Select from 'react-select'
 
 
@@ -9,7 +9,6 @@ export default function Header(props) {
     let setMonth=props.setMonth
     let user=props.user
     let db=props.db
-    let inputs=props.inputs
     let setInputs=props.setInputs
     let setPrevBudg=props.setPrevBudg
     let prevBudg=props.prevBudg

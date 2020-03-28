@@ -12,8 +12,7 @@ export default function Expenses(props) {
         <div className='expenses' >
 
            {inputs.filter(inputB=> inputB.value.includes('Expense')).map(inputB=> <Input inputB={inputB} setInputs={setInputs} inputs={inputs} />) }
-           {/* {getData.inputs!==undefined?
-           getData.inputs.filter(inputB=> inputB.value.includes('Expense')).map(inputB => <Input inputB={inputB}  setInputs={setInputs} inputs={inputs} />):''  } */}
+
         </div>
     )
 }

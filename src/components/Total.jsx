@@ -6,8 +6,6 @@ export default function Total(props) {
 
     const[totalInput,setTotalInput]=useState(0)
 
-   
-
     useEffect(()=>{
         if( typeof input != 'undefined' && input instanceof Array&&input.length!==0){
             let total=0

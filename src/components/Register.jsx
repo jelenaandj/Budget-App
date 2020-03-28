@@ -3,7 +3,6 @@ import { useState } from 'react'
 
 export default function Register(props) {
 
-    let user=props.user
     let setUser=props.setUser
     let firebase=props.firebase
     let db=props.db
@@ -13,15 +12,11 @@ export default function Register(props) {
     let setEmail=props.setEmail
     let handleUserNameData=props.handleUserNameData
 
-    
-    // const[email,setEmail]=useState('')
     const[password,setPassword]=useState('')
     const[confirmPassword,setConfirmPassword]=useState('')
 
-
     const handleUserName=(e)=>{
         setUserName(e.target.value)
-        console.log(username)
     }
     const handleEmail=(e)=>{
         setEmail(e.target.value)
@@ -41,9 +36,7 @@ export default function Register(props) {
               })
               .catch(function(error) {
                   console.error("Error writing Username: ", error);
-              });
-          console.log(user)
-          console.log(username)}else{
+              });}else{
               console.log('no user')
           }
     }
@@ -53,7 +46,6 @@ export default function Register(props) {
         if(email!=='' && password!==''&& password===confirmPassword){
             setUser(firebase.auth().currentUser)
             
-            console.log(user)
             firebase.auth().createUserWithEmailAndPassword(email, password).then(function(user) {
                 // user signed in
                 alert('You have successfully Registered')
@@ -62,8 +54,8 @@ export default function Register(props) {
               handleUserNameData()
              }).catch(function(error) {
                 // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
+                // var errorCode = error.code;
+                // var errorMessage = error.message;
                 // ...
               });  
         }else{

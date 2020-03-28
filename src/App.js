@@ -19,7 +19,6 @@ const uuidv4 = require('uuid/v4')
 // Required for side-effects
 require("firebase/firestore");
 
-
 function App() {
     const[inputs,setInputs]=useState([])
     const[user,setUser]=useState()
@@ -30,31 +29,12 @@ function App() {
     const[username,setUserName]=useState('')
     const[email,setEmail]=useState('')
     const[userData,setUserData]=useState('')
-
-
-    
-    // const[totalExp,setTotalExp]=useState([])
-
-    const signoutHandler=(e)=>{
-        e.preventDefault()
-
-        firebase.auth().signOut();
-        setInputs([])
-        setUser(undefined)
-        setShowLogin(false)
-        setShowRegister(false)
-        setUserData('')
-        console.log('logged out')
-    }
-/////////
-if (user != null) {
   
-  console.log (user.email)
-  // 
-}
-
-
-
+    // const[totalExp,setTotalExp]=useState([])
+  
+// if (user != null) {  
+//   console.log (user.email) // 
+// }
 
 /////////////////////////FIREBASE/////////////
 const firebaseConfig = {
@@ -76,7 +56,6 @@ const firebaseConfig = {
 //   authDomain: "budget-4f776.firebaseapp.com",
 //   projectId: "budget-4f776"
 // });
-
 
 
 if (!firebase.apps.length) {
@@ -143,7 +122,7 @@ switch (a.getMonth() + 1) {
 }
 const[month,setMonth]=useState(m)
 
-// console.log(user)
+// get username
 const handleUserNameData=(e)=>{
   firebase.auth().onAuthStateChanged(function(user) {
     ///
@@ -159,20 +138,31 @@ const handleUserNameData=(e)=>{
     }else {
     // doc.data() will be undefined in this case
     setUserData(email)
-        }
-        })
+    }})
     .catch(function(error) {
         console.error("Error getting document: ", error);
     });
     // User is signed in. 
-    } else {
-      // No user is signed in.
-      console.log(user)
-    }
+    } 
   });
 
 }
+////
+const signoutHandler=(e)=>{
+  e.preventDefault()
 
+  firebase.auth().signOut();
+  setInputs([])
+  setUser(undefined)
+  setShowLogin(false)
+  setShowRegister(false)
+  setUserData('')
+  setBudg(0)
+  setPrevBudg(0)
+  setMonth(m)
+  console.log('logged out')
+}
+/////////
   return (
     <div className="App">
     {user===undefined? 
@@ -181,12 +171,12 @@ const handleUserNameData=(e)=>{
       {!showLogin&&
     <input type='submit' value='Log in' onClick={(e)=>showLogin? setShowLogin(false):setShowLogin(true)}/>}
     {showLogin?
-    <Login handleUserNameData={handleUserNameData} user={user} email={email} setEmail={setEmail} db={db} username={username} setUser={setUser} firebase={firebase}/> : console.log('notloged')}
+    <Login handleUserNameData={handleUserNameData} user={user} email={email} setEmail={setEmail} db={db} username={username} setUser={setUser} firebase={firebase}/> : ''}
 
     {!showRegister&&
     <input type='submit' value='Register' onClick={(e)=>showRegister? setShowRegister(false):setShowRegister(true)}/>}
     {showRegister?
-    <Register handleUserNameData={handleUserNameData} username={username} email={email} setEmail={setEmail} setUserName={setUserName} db={db} user={user} setUser={setUser} firebase={firebase} /> : console.log('not reggistered')}
+    <Register handleUserNameData={handleUserNameData} username={username} email={email} setEmail={setEmail} setUserName={setUserName} db={db} user={user} setUser={setUser} firebase={firebase} /> : ''}
     </div>
      : <input type="submit" value="Log out" onClick={signoutHandler} />}
     <Profile userData={userData}/>
