@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
-
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 import "firebase/database";
-
-
 import './App.css';
-// import Header from './layout/Header';
-// import Content from './layout/Content';
 import Form from './components/Form'; 
 import Income from './components/Income';
 import Expenses from './components/Expenses';
@@ -17,6 +12,7 @@ import Budget from './components/Budget';
 import Login from './components/Login';
 import Header from './layout/Header';
 import Register from './components/Register';
+import Profile from './components/Profile';
 
 const uuidv4 = require('uuid/v4')
 // const firebase = require("firebase");
@@ -31,6 +27,11 @@ function App() {
     const[showRegister,setShowRegister]=useState(false)
     const[budg,setBudg]=useState(0)
     const[prevBudg,setPrevBudg]=useState(0)
+    const[username,setUserName]=useState('')
+    const[email,setEmail]=useState('')
+    const[userData,setUserData]=useState('')
+
+
     
     // const[totalExp,setTotalExp]=useState([])
 
@@ -42,18 +43,19 @@ function App() {
         setUser(undefined)
         setShowLogin(false)
         setShowRegister(false)
+        setUserData('')
         console.log('logged out')
     }
 /////////
 if (user != null) {
   
   console.log (user.email)
-  ///
-     
-  
-////
-  
+  // 
 }
+
+
+
+
 /////////////////////////FIREBASE/////////////
 const firebaseConfig = {
     apiKey: "AIzaSyAVNGZqhJbMxHXce-_YzNB0Xb0AY7xsYBs",
@@ -141,7 +143,36 @@ switch (a.getMonth() + 1) {
 }
 const[month,setMonth]=useState(m)
 
-console.log(user)
+// console.log(user)
+const handleUserNameData=(e)=>{
+  firebase.auth().onAuthStateChanged(function(user) {
+    ///
+    if(email !==undefined && username !==undefined){
+    db.collection('users').doc(email).collection('personalInfo').doc('username').get()
+    .then(function(doc) {
+    if (doc.exists) {
+    //
+    setUserData(doc.data().username)
+    console.log(userData)
+    
+    console.log("Document data:", doc.data());
+    }else {
+    // doc.data() will be undefined in this case
+    setUserData(email)
+        }
+        })
+    .catch(function(error) {
+        console.error("Error getting document: ", error);
+    });
+    // User is signed in. 
+    } else {
+      // No user is signed in.
+      console.log(user)
+    }
+  });
+
+}
+
   return (
     <div className="App">
     {user===undefined? 
@@ -150,15 +181,16 @@ console.log(user)
       {!showLogin&&
     <input type='submit' value='Log in' onClick={(e)=>showLogin? setShowLogin(false):setShowLogin(true)}/>}
     {showLogin?
-    <Login user={user} setUser={setUser} firebase={firebase}/> : console.log('notloged')}
+    <Login handleUserNameData={handleUserNameData} user={user} email={email} setEmail={setEmail} db={db} username={username} setUser={setUser} firebase={firebase}/> : console.log('notloged')}
 
     {!showRegister&&
     <input type='submit' value='Register' onClick={(e)=>showRegister? setShowRegister(false):setShowRegister(true)}/>}
     {showRegister?
-    <Register db={db} user={user} setUser={setUser} firebase={firebase}/> : console.log('not reggistered')}
+    <Register handleUserNameData={handleUserNameData} username={username} email={email} setEmail={setEmail} setUserName={setUserName} db={db} user={user} setUser={setUser} firebase={firebase} /> : console.log('not reggistered')}
     </div>
      : <input type="submit" value="Log out" onClick={signoutHandler} />}
-    <Header m={m} prevBudg={prevBudg} inputs={inputs} setInputs={setInputs} db={db} user={user} month={month} setMonth={setMonth} setPrevBudg={setPrevBudg}/>
+    <Profile userData={userData}/>
+    <Header m={m} prevBudg={prevBudg} inputs={inputs} setInputs={setInputs} db={db} user={user} month={month} setMonth={setMonth} setPrevBudg={setPrevBudg} email={email}/>
     <Budget prevBudg={prevBudg} expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))} budg={budg} setBudg={setBudg} />
     <label>Income</label><Total  input={inputs.filter(inputB=> inputB.value.includes('Income'))}/>
     <label>Expense</label><Total  input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/>

@@ -13,6 +13,8 @@ export default function Header(props) {
     let setInputs=props.setInputs
     let setPrevBudg=props.setPrevBudg
     let prevBudg=props.prevBudg
+    let email=props.email
+
 
     
     const options = [
@@ -33,14 +35,13 @@ export default function Header(props) {
 
     const onMonthChange=(e)=>{
         console.log(e)
-        if(user!==undefined && user !== null){
+        if(user!==undefined){
         if(e.value !==''){
         setMonth(e.value)
         console.log(month)
         console.log(e.label)
-        let email=user.email
     ///get data form firestore//
-        db.collection('users').doc(user.email).collection(e.value).doc(e.value).get()
+        db.collection('users').doc(email).collection(e.value).doc(e.value).get()
         .then(function(doc) {
         if (doc.exists) {
         //
@@ -59,7 +60,7 @@ export default function Header(props) {
         if(e.prevMonth!==undefined){
         ////////prev month
         // e.prevMonth !==undefined ?
-        db.collection('users').doc(user.email).collection(e.prevMonth).doc(e.prevMonth).get()
+        db.collection('users').doc(email).collection(e.prevMonth).doc(e.prevMonth).get()
         .then(function(doc) {
         if (doc.exists) {
         //
