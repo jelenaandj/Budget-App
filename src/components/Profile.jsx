@@ -6,6 +6,6 @@ export default function Profile(props) {
 
     return (
         <div>
-            username: {userData}
+           {userData&& <label>Hello</label>} {userData}
         </div>
     )}
