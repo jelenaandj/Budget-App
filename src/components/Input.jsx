@@ -13,10 +13,7 @@ export default function Input(props) {
         if(inputs.length !==0){
             setInputs(inputs.filter(input=>input.id !==id))
         }
-       
-        // inputs.splice(e.target.value)
-        // setRecipes(recipes.filter(recipe=>recipe.id !==id))
-        
+          
     }
 
     return (
