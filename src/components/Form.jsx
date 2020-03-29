@@ -11,10 +11,8 @@ export default function Form(props) {
     let user=props.user
     let inputs=props.inputs
     let budg=props.budg
+    let email=props.email
    
-    
-    // let inputs=props.inputs
-
     const options = [
         { value: 'Income', label: '+' },
         { value: 'Expense', label: '-' }
@@ -61,7 +59,7 @@ export default function Form(props) {
 
     const handleSave=(e)=>{
         if(user!==undefined){
-            db.collection('users').doc(user.email).collection('months').doc(month).set({
+            db.collection('users').doc(email).collection('months').doc(month).set({
                 inputs,
                 budg
             }).then(function() {

@@ -184,7 +184,7 @@ const signoutHandler=(e)=>{
     <Budget prevBudg={prevBudg} expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))} budg={budg} setBudg={setBudg} />
     <label>Income</label><Total  input={inputs.filter(inputB=> inputB.value.includes('Income'))}/>
     <label>Expense</label><Total  input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/>
-    <Form handleClick={handleClick} inputs={inputs} month={month} db={db} user={user} budg={budg} />
+    <Form handleClick={handleClick}  inputs={inputs} month={month} db={db} user={user} budg={budg} email={email} />
     <div className='container'>
     <Income  inputs={inputs} setInputs={setInputs}/>
     <Expenses  inputs={inputs} setInputs={setInputs} />
