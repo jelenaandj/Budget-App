@@ -38,23 +38,33 @@
 } */
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 15rem;
+  display: flex;
+  justify-content: center;
+ 
 }
 
-.container > div {
+/* .container > div {
   background: #EDE7F6;
   padding: 1.5rem;
   border-radius: 1rem;
-}
+} */
 
 .form{
   width: 150px;
 }
 .expenses{
   color: red;
+  width: 35%;
+  background-color: #EDE7F6;
+  margin: 10px;
+
+
 }
 .income{
   color:blue;
+  width: 35%;
+  background-color: #EDE7F6;
+  margin: 10px;
+
+
 }
