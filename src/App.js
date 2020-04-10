@@ -13,6 +13,7 @@ import Login from './components/Login';
 import Header from './layout/Header';
 import Register from './components/Register';
 import Profile from './components/Profile';
+import Footer from './layout/Footer';
 
 const uuidv4 = require('uuid/v4')
 // const firebase = require("firebase");
@@ -165,21 +166,23 @@ const signoutHandler=(e)=>{
 /////////
   return (
     <div className="App">
+    <div className='navdiv'>
     {user===undefined? 
-    <div>
-
+    <div className='navbar'>
+    <label className='budget-label'>The Budget App</label>
       {!showLogin&&
-    <input type='submit' value='Log in' onClick={(e)=>showLogin? setShowLogin(false):setShowLogin(true)}/>}
+    <input type='submit' value='Log in'  className='btn'  onClick={(e)=>showLogin? setShowLogin(false):setShowLogin(true)}/>}
     {showLogin?
     <Login handleUserNameData={handleUserNameData} user={user} email={email} setEmail={setEmail} db={db} username={username} setUser={setUser} firebase={firebase}/> : ''}
 
     {!showRegister&&
-    <input type='submit' value='Register' onClick={(e)=>showRegister? setShowRegister(false):setShowRegister(true)}/>}
+    <input type='submit' value='Register'  className='btn' onClick={(e)=>showRegister? setShowRegister(false):setShowRegister(true)}/>}
     {showRegister?
     <Register handleUserNameData={handleUserNameData} username={username} email={email} setEmail={setEmail} setUserName={setUserName} db={db} user={user} setUser={setUser} firebase={firebase} /> : ''}
     </div>
-     : <input type="submit" value="Log out" onClick={signoutHandler} />}
-    <Profile userData={userData}/>
+     : <Profile userData={userData} signoutHandler={signoutHandler}/>}
+     </div>
+     <div className='main'>
     <Header m={m} prevBudg={prevBudg} inputs={inputs} setInputs={setInputs} db={db} user={user} month={month} setMonth={setMonth} setPrevBudg={setPrevBudg} email={email}/>
     <Budget prevBudg={prevBudg} expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))} budg={budg} setBudg={setBudg} />
     <label>Income</label><Total  input={inputs.filter(inputB=> inputB.value.includes('Income'))}/>
@@ -189,6 +192,8 @@ const signoutHandler=(e)=>{
     <Income  inputs={inputs} setInputs={setInputs}/>
     <Expenses  inputs={inputs} setInputs={setInputs} />
     </div>
+    </div>
+    <Footer/>
     </div>
   );}
 

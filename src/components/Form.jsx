@@ -79,7 +79,7 @@ export default function Form(props) {
     
     return (
         <div className='form' >
-            <Select options={options} onChange={onSelectChange} />   
+            <Select options={options} onChange={onSelectChange}  className='select' />   
             <input type='text' onChange={onTextInput} />
             <input type='text' onChange={onNumbInput} />
 

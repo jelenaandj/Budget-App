@@ -91,10 +91,11 @@ export default function Header(props) {
     }
 
     return (
-        <div>
-            <h1>Budget for</h1>
+        <div className='header'>
+                
+            <h1>Your <label className='budget-label'>Budget</label> for</h1>
     <h1>{month}</h1>
-            <Select options={options} onChange={onMonthChange} />   
+            <Select options={options} className='select' onChange={onMonthChange} />   
 
         </div>
     )

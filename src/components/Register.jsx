@@ -65,11 +65,12 @@ export default function Register(props) {
     } 
     return (
         <div>
+
             <input type='text' placeholder='username' onChange={handleUserName}/>
             <input type="email" placeholder="Email" onChange={handleEmail} />
             <input type="password" placeholder="Password" onChange={handlePass}/>
             <input type="password" placeholder="Confirm Password" onChange={handleConfirmPass}/>
-            <input type="submit" value="Register" onClick={handleRegister}/>
+            <input type="submit" value="Register" className='btn'  onClick={handleRegister}/>
         </div>
     )
 }

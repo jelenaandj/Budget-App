@@ -51,9 +51,10 @@ export default function Login(props) {
     return (
         <div>
             <div>
+
                 <input type="text" placeholder="email" onChange={emailHandler}/>
                 <input type="password" placeholder="password" onChange={passwordHandler}/>
-                <input type="submit" value="Log in" onClick={inputHandler} />
+                <input type="submit" value="Log in" className='btn' onClick={inputHandler} />
             </div>
           
         </div>
