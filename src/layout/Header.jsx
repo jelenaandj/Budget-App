@@ -94,8 +94,8 @@ export default function Header(props) {
         <div className='header'>
                 
             <h1>Your <label className='budget-label'>Budget</label> for</h1>
-    <h1>{month}</h1>
-            <Select options={options} className='select' onChange={onMonthChange} />   
+            <h1>{month}</h1>
+            <Select options={options} className='select' placeholder='Select Month...' onChange={onMonthChange} />   
 
         </div>
     )

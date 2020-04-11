@@ -16,8 +16,8 @@ body{
   position: fixed;
   width: 20%;
   height: 100vh;
-  background-color: blanchedalmond;
-  border: 2px solid black;
+  background-color:#F3878D;
+  border: 2px solid#DAEDF1;
 } 
 .navbar, .profile{
   /* position: relative; */
@@ -29,12 +29,11 @@ body{
   flex-direction: column;
   padding: 20%;
   justify-content: space-evenly;
-
- 
 }
+
 .main{
   position: relative;
-  width: 70%;
+  width: 80%;
   float: right;
   height: 100vh;
   /* padding: 50px; */
@@ -46,7 +45,19 @@ body{
 }
 .btn{
   margin-top:20px;
+  background-color: #DAEDF1;
+  border: 3px solid #09648E;
+  color: #09648E;
+  font-weight: bolder;
+  height: 40px;
+  width: 100px;
+  padding: 2%;
 }
+.btn:hover{
+  color: #F3878D;
+  border: #F3878D;
+}
+
 .profile .budget-label{
   /* position: fixed;
   left: 0; */
@@ -56,7 +67,9 @@ body{
 }
 .profile label{
   align-self: center;
-  padding-right: 3%;
+}
+.user{
+  padding: 50%;
 }
 .budget-label{
   font-family: 'Pacifico', cursive;
@@ -65,8 +78,10 @@ body{
 /* //////////////////// */
 
 .header{
-  justify-content: center;
-  align-items: center;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-bottom: 10%;
 }
 
 .container {
@@ -74,10 +89,6 @@ body{
   /* justify-content: space-evenly;  */
   align-items: flex-start;
 } 
-.btn{
-  width: 100px;
-  padding: 2%;
-}
 .select{
   width: 200px;
 }

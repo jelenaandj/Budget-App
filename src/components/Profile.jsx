@@ -8,7 +8,9 @@ export default function Profile(props) {
     return (
         <div className='profile'>
 <label className='budget-label'>The Budget App</label>
-           {userData&& <label>Hello {userData}</label>} 
+           {userData&& <label className='user'>Hello {userData}</label>} 
            <input type="submit" value="Log out"  className='btn'  onClick={signoutHandler} />
+           <input type="submit" value="Learn More"  className='btn'   />
+
         </div>
     )}
