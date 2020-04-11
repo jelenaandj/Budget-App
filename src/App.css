@@ -18,6 +18,8 @@ body{
   height: 100vh;
   background-color:#F3878D;
   border: 2px solid#DAEDF1;
+  
+
 } 
 .navbar, .profile{
   /* position: relative; */
