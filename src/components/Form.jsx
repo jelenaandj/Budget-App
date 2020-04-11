@@ -83,8 +83,8 @@ export default function Form(props) {
             <input type='text' placeholder='Description' onChange={onTextInput} />
             <input type='text' placeholder='Amount' onChange={onNumbInput} />
 
-            <button onClick={handleButton}>Submit</button>
-            <button onClick={handleSave}>Save</button>
+            <button onClick={handleButton} className='button'>Submit</button>
+            <button onClick={handleSave}className='button'>Save</button>
 
         </div>
     )

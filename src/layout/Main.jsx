@@ -26,8 +26,8 @@ let handleClick=props.handleClick
         <div className='main'>
             <Header m={m} prevBudg={prevBudg} inputs={inputs} setInputs={setInputs} db={db} user={user} month={month} setMonth={setMonth} setPrevBudg={setPrevBudg} email={email}/>
             <Budget prevBudg={prevBudg} expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))} budg={budg} setBudg={setBudg} />
-                <label>Income</label><Total  input={inputs.filter(inputB=> inputB.value.includes('Income'))}/>
-                <label>Expense</label><Total  input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/>
+                <div className='income-total'><label>Total Incomes:</label><Total  input={inputs.filter(inputB=> inputB.value.includes('Income'))}/></div>
+                <div className='expense-total'><label>Total Expenses:</label><Total  input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/></div>
             <Form handleClick={handleClick}  inputs={inputs} month={month} db={db} user={user} budg={budg} email={email} />
                 <div className='container'>
                     <Income  inputs={inputs} setInputs={setInputs}/>

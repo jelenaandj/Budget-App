@@ -19,8 +19,8 @@ export default function Total(props) {
     },)
 
     return (
-        <div>
-            <label>
+        <div >
+            <label className='total'>
                 {totalInput}
             </label>
         </div>
