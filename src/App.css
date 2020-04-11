@@ -4,26 +4,27 @@
   from {
     transform: rotate(0deg);
   }
-  to {
+  to {#83BCF1
     transform: rotate(360deg);
   }
 } */ 
 body{
   font-family: Arial, Helvetica, sans-serif;
   font-size: large;
+  border: 2px solid #F5CEAB;
+
+ 
 }
 .navdiv{
   position: fixed;
   width: 20%;
   height: 100vh;
-  background-color:#F3878D;
-  border: 2px solid#DAEDF1;
-  
-
+  background-color:#F5CEAB;
+  border: 2px solid #F5CEAB;
 } 
 .navbar, .profile{
   /* position: relative; */
-  margin: 0 15%;
+  margin: 0 10%;
   /* text-align: right; */
   /* top: 20%;
   transform: translateY(-50%); */
@@ -35,11 +36,10 @@ body{
 
 .main{
   position: relative;
-  width: 80%;
+  width: 75%;
   float: right;
   height: 100vh;
   /* padding: 50px; */
-
 }
 .navbar .budget-label{
   padding: 1%;
@@ -47,17 +47,17 @@ body{
 }
 .btn{
   margin-top:20px;
-  background-color: #DAEDF1;
-  border: 3px solid #09648E;
-  color: #09648E;
+  background-color: #F1B883;
+  border: 3px solid white;
+  color: white;
   font-weight: bolder;
   height: 40px;
   width: 100px;
   padding: 2%;
 }
 .btn:hover{
-  color: #F3878D;
-  border: #F3878D;
+  color: #83BCF1;
+  border:3px solid #83BCF1;
 }
 
 .profile .budget-label{
@@ -97,20 +97,37 @@ margin-bottom: 10%;
 .form{
   width: 150px;
 }
-.expenses{
-  color: red;
+.expenses, .income{
+  /* color: red; */
   width: 35%;
-  background-color: #EDE7F6;
-  /* margin: 10px; */
+  margin-right: 10%;
+  justify-self: center;
+  padding: 2%;
+  word-wrap: break-word;
 }
 
-.income{
-  color:blue;
-  width: 35%;
-  background-color: #EDE7F6;
-  margin-right: 10%;
-  /* text-align: left; */
-  /* margin: 10px; */
+
+.input{
+  border: solid #F1B883 3px;
+  background-color: #83BCF1;
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  /* padding: 2%; */
+  margin: 2%;
+
+}
+.input-btn{
+  display: none;
+
+}
+.input, p{
+  margin: 10%;
+}
+.input:hover .input-btn{
+  display: inline-block;
+  align-self: flex-end;
 }
 
 .footer{

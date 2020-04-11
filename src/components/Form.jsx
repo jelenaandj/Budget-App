@@ -14,8 +14,8 @@ export default function Form(props) {
     let email=props.email
    
     const options = [
-        { value: 'Income', label: '+' },
-        { value: 'Expense', label: '-' }
+        { value: 'Income', label: 'Income' },
+        { value: 'Expense', label: 'Expense' }
       ]
     // let{handleClick,input}=props
     const[select,setSelect]=useState('')
@@ -79,9 +79,9 @@ export default function Form(props) {
     
     return (
         <div className='form' >
-            <Select options={options} onChange={onSelectChange}  className='select' />   
-            <input type='text' onChange={onTextInput} />
-            <input type='text' onChange={onNumbInput} />
+            <Select options={options} onChange={onSelectChange} placeholder='Choose a type...'  className='select' />   
+            <input type='text' placeholder='Description' onChange={onTextInput} />
+            <input type='text' placeholder='Amount' onChange={onNumbInput} />
 
             <button onClick={handleButton}>Submit</button>
             <button onClick={handleSave}>Save</button>

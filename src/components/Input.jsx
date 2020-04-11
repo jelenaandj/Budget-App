@@ -18,12 +18,12 @@ export default function Input(props) {
 
     return (
         
-        <div>
-            <p>{inputB.value}</p>
+        <div className='input'>
+            {/* <p>{inputB.value}</p> */}
             <p>{inputB.text} </p>
             <p>{parseInt(inputB.numb)} </p>
             {inputB?
-            <button type='submit' onClick={()=>handleDelete(inputB.id)} >Delete</button>
+            <button type='submit' className='input-btn' onClick={()=>handleDelete(inputB.id)} >Delete</button>
         :null}
         </div>
         
