@@ -103,7 +103,7 @@ margin-bottom: 10%;
   margin-right: 10%;
   justify-self: center;
   padding: 2%;
-  word-wrap: break-word;
+
 }
 
 
@@ -116,6 +116,10 @@ margin-bottom: 10%;
   flex-wrap: wrap;
   /* padding: 2%; */
   margin: 2%;
+  /* width: 100px; */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
 
 }
 .input-btn{
@@ -126,10 +130,14 @@ margin-bottom: 10%;
   margin: 10%;
 }
 .input:hover .input-btn{
-  display: inline-block;
-  align-self: flex-end;
+  display: flex;
 }
-
+.empty{
+  width: 100%;
+  height: 1%;
+  padding: 0;
+  margin:0
+}
 .footer{
   padding-right: 5%;
   position: fixed;

@@ -22,6 +22,7 @@ export default function Input(props) {
             {/* <p>{inputB.value}</p> */}
             <p>{inputB.text} </p>
             <p>{parseInt(inputB.numb)} </p>
+            <p className='empty'></p>
             {inputB?
             <button type='submit' className='input-btn' onClick={()=>handleDelete(inputB.id)} >Delete</button>
         :null}
