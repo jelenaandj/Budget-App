@@ -18,7 +18,7 @@ body{
 .navdiv{
   position: fixed;
   width: 20%;
-  height: 100vh;
+  height:100vh;
   background-color:#F5CEAB;
   border: 2px solid #F5CEAB;
 } 
@@ -34,12 +34,24 @@ body{
   padding-top: 10%;
   justify-content: space-evenly;
 }
+.popup-content, p{
+ /* display: block; 
+ width: 400px;
+ background-color: white;
+ position: absolute;
+ border: 1px solid rgb(187,187,187);
+ box-shadow: rgba(0,0,0.2) 0px 1px 3px;
+ padding: 5px; */
+ /* height: 600px; */
+ /* word-break: break-all; */
 
+
+}
 .main{
   position: relative;
   width: 75%;
   float: right;
-  height: 90vh;
+  height: 100vh;
   /* padding: 50px; */
 }
 .navbar .budget-label{
@@ -55,6 +67,7 @@ body{
   height: 40px;
   width: 100px;
   padding: 2%;
+  
 }
 .btn:hover{
   color: #83BCF1;
@@ -74,6 +87,8 @@ body{
 .user{
   padding-top: 50%;
   padding-bottom: 25%;
+  padding-right: 30%;
+
 }
 .budget-label{
   font-family: 'Pacifico', cursive;
@@ -118,7 +133,7 @@ h1{
 
 .input{
   border: solid #F1B883 3px;
-  background-color: #83BCF1;
+  background-color: #FAE5D3;
   display: flex;
   /* flex-direction: row; */
   justify-content: flex-start;
@@ -126,21 +141,22 @@ h1{
   /* padding: 2%; */
   margin: 2%;
   /* width: 100px; */
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-all;
-
+ 
 }
-.input-btn{
+.input .button{
   display: none;
 
 }
 .input, p{
   margin: 10%;
- 
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
 }
-.input:hover .input-btn{
+.input:hover .button{
   display: flex;
+  justify-content: start;
+  margin-left: 0;
 }
 .input-container input{
  max-width:100%;
@@ -172,6 +188,13 @@ input{
   padding: 3%;
   margin-left: 10%;
   width: 40%;
+  height: 40px;
+  background-color: #F1B883;
+  color: white;
+}
+.button:hover{
+  color: #83BCF1;
+  border: 2px solid #83BCF1;
 }
 .footer{
   position: fixed; 
@@ -185,6 +208,11 @@ input{
   }
   h1{
     font-size: large;
+  }
+  .user{
+    padding:0;
+    padding-top: 10px;
+  
   }
 }
 @media (max-width: 800px) {
@@ -210,17 +238,22 @@ input{
     height: 50px;
     width: 60px;
     padding: 0;
+    flex-wrap:wrap ;
+    font-size: x-small;
   }
   .footer{
     position: fixed; 
     bottom: 0; 
     float: right;
-    width: 80px;
+    width: 50px;
   }
-  .input-btn{
-    display: inline-block;
+  .input .button{
+    display: block;
+    width: fit-content;
+    
   
   }
+ 
   .expenses label, .income label{
     margin: 10%;
   }

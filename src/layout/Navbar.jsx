@@ -2,6 +2,7 @@ import React from 'react'
 import Login from '../components/Login'
 import Register from '../components/Register'
 import Profile from '../components/Profile'
+import Popup from "reactjs-popup";
 
 export default function Navbar(props) {
 
@@ -21,6 +22,10 @@ let showRegister=props.showRegister
 let userData=props.userData
 let signoutHandler=props.signoutHandler
 
+///
+
+///
+
     return (
     <div className='navdiv'>
             {user===undefined? 
@@ -35,8 +40,18 @@ let signoutHandler=props.signoutHandler
             <input type='submit' value='Register'  className='btn' onClick={(e)=>showRegister? setShowRegister(false):setShowRegister(true)}/>}
             {showRegister?
             <Register handleUserNameData={handleUserNameData} username={username} email={email} setEmail={setEmail} setUserName={setUserName} db={db} user={user} setUser={setUser} firebase={firebase} /> : ''}
-           <input type="submit" value="Learn More"  className='btn'   />
-        
+           {/* <input type="submit" value="Learn More"  className='btn'   /> */}
+            <Popup trigger={<input type="submit" value="Learn More"  className='btn'   />}  position="under">
+                <div  className="pop" >
+                    <p>Hello!</p>
+                    <p >This is an app designed to help you calculate your budget.</p>
+                    <p>Without registering you are able to budget only the current month.</p>
+                    <p>When you logg in, you can save your changes.</p>
+                    <p>If you want to make changes you need to choose a month first.</p>
+
+
+                </div>
+            </Popup>
         </div>
                 : <Profile userData={userData} signoutHandler={signoutHandler}/>}
 
