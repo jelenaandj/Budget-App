@@ -79,7 +79,7 @@ export default function Form(props) {
     
     return (
         <div className='form' >
-            <Select options={options} onChange={onSelectChange} placeholder='Choose a type...'  className='select' />   
+            <Select options={options} onChange={onSelectChange} placeholder='Choose type...'  className='select' />   
             <input type='text' placeholder='Description' onChange={onTextInput} />
             <input type='text' placeholder='Amount' onChange={onNumbInput} />
 

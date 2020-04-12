@@ -64,7 +64,7 @@ export default function Register(props) {
         
     } 
     return (
-        <div>
+        <div className='input-container'>
 
             <input type='text' placeholder='username' onChange={handleUserName}/>
             <input type="email" placeholder="Email" onChange={handleEmail} />
