@@ -34,19 +34,26 @@ body{
   padding-top: 10%;
   justify-content: space-evenly;
 }
-.popup-content, p{
+.popup-content{
  /* display: block; 
- width: 400px;
- background-color: white;
+!important;
+}
+ /* background-color: white;
  position: absolute;
  border: 1px solid rgb(187,187,187);
  box-shadow: rgba(0,0,0.2) 0px 1px 3px;
- padding: 5px; */
+ padding: 5px;  */
  /* height: 600px; */
  /* word-break: break-all; */
-
-
+  width: 300px!important;
+  font-size: smaller !important;
+  top: 0 !important;
+  left: -25.925px !important;
+  padding: 0 !important;
+  margin-top: 270px !important;
 }
+
+
 .main{
   position: relative;
   width: 75%;
@@ -148,7 +155,7 @@ h1{
 
 }
 .input, p{
-  margin: 10%;
+  margin: 5%;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-all;
@@ -199,7 +206,7 @@ input{
 .footer{
   position: fixed; 
   bottom: 0; 
-  float: right;
+  right: 0;
   width: 100px;
 }
 @media (max-width: 450px) {
@@ -213,6 +220,10 @@ input{
     padding:0;
     padding-top: 10px;
   
+  }
+  .popup-content{
+  overflow-wrap: scroll !important;
+
   }
 }
 @media (max-width: 800px) {
@@ -251,10 +262,18 @@ input{
     display: block;
     width: fit-content;
     
-  
+    
   }
- 
+  .pop{
+    font-size: xx-small;
+    /* width: 30px; */
+  }
+
   .expenses label, .income label{
     margin: 10%;
+  }
+  .popup-content{
+    width: 100% !important;
+    margin-left: 20px;
   }
 }
