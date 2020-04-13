@@ -52,6 +52,7 @@ let signoutHandler=props.signoutHandler
                     <p>you can save your changes.</p>
                     <p>When making changes </p>
                     <p>you need to choose a month first.</p>
+                    <p>Good Luck!</p>
 
 
                 </div>
