@@ -43,7 +43,6 @@ let signoutHandler=props.signoutHandler
            {/* <input type="submit" value="Learn More"  className='btn'   /> */}
             <Popup trigger={<input type="submit" value="Learn More"  className='btn'   />}  position="under">
                 <div  className="pop" >
-                    <p>Hello!</p>
                     <p >This is an app designed </p>
                     <p>to help you calculate your budget.</p>
                     <p>Without registering you can budget</p>
