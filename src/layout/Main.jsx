@@ -5,6 +5,7 @@ import Header from './Header'
 import Budget from '../components/Budget'
 import Total from '../components/Total'
 import Form from '../components/Form'
+import AllBudgets from '../components/AllBudgets'
 
 export default function Main(props) {
 
@@ -21,6 +22,7 @@ let setPrevBudg=props.setPrevBudg
 let budg=props.budg
 let setBudg=props.setBudg
 let handleClick=props.handleClick
+let allBudgets=props.allBudgets
 
     return (
         <div className='main'>
@@ -33,6 +35,7 @@ let handleClick=props.handleClick
                     <Income  inputs={inputs} setInputs={setInputs}/>
                     <Expenses  inputs={inputs} setInputs={setInputs} />
                 </div>
+                <AllBudgets db={db} email={email} allBudgets={allBudgets} />
         </div>
     )
 }

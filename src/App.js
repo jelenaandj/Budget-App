@@ -23,7 +23,7 @@ function App() {
     const[username,setUserName]=useState('')
     const[email,setEmail]=useState('')
     const[userData,setUserData]=useState('')
-  
+    const[allBudgets,setAllBudgets]=useState(false)
     // const[totalExp,setTotalExp]=useState([])
   
 // if (user != null) {  
@@ -159,9 +159,9 @@ const signoutHandler=(e)=>{
 /////////
   return (
     <div className="App">
-    <Navbar  showLogin={showLogin} setShowLogin={setShowLogin} handleUserNameData={handleUserNameData} user={user} email={email} setEmail={setEmail} db={db} username={username} setUser={setUser} firebase={firebase} 
+    <Navbar setAllBudgets={setAllBudgets} allBudgets={allBudgets} showLogin={showLogin} setShowLogin={setShowLogin} handleUserNameData={handleUserNameData} user={user} email={email} setEmail={setEmail} db={db} username={username} setUser={setUser} firebase={firebase} 
       setShowRegister={setShowRegister} showRegister={showRegister} userData={userData} signoutHandler={signoutHandler}/>
-    <Main m={m} prevBudg={prevBudg} inputs={inputs} setInputs={setInputs} db={db} user={user} month={month} 
+    <Main allBudgets={allBudgets} m={m} prevBudg={prevBudg} inputs={inputs} setInputs={setInputs} db={db} user={user} month={month} 
       setMonth={setMonth} setPrevBudg={setPrevBudg} email={email} budg={budg} setBudg={setBudg} handleClick={handleClick} />
     <Footer/>
     </div>

@@ -21,7 +21,8 @@ let setShowRegister=props.setShowRegister
 let showRegister=props.showRegister
 let userData=props.userData
 let signoutHandler=props.signoutHandler
-
+let allBudgets=props.allBudgets
+let setAllBudgets=props.setAllBudgets
 ///
 
 ///
@@ -57,7 +58,7 @@ let signoutHandler=props.signoutHandler
                 </div>
             </Popup>
         </div>
-                : <Profile userData={userData} signoutHandler={signoutHandler}/>}
+                : <Profile setAllBudgets={setAllBudgets} allBudgets={allBudgets} userData={userData} signoutHandler={signoutHandler}/>}
 
      </div>
         
