@@ -23,9 +23,7 @@ let userData=props.userData
 let signoutHandler=props.signoutHandler
 let allBudgets=props.allBudgets
 let setAllBudgets=props.setAllBudgets
-///
 
-///
 
     return (
     <div className='navdiv'>
@@ -58,7 +56,7 @@ let setAllBudgets=props.setAllBudgets
                 </div>
             </Popup>
         </div>
-                : <Profile setAllBudgets={setAllBudgets} allBudgets={allBudgets} userData={userData} signoutHandler={signoutHandler}/>}
+                : <Profile email={email} db={db} setAllBudgets={setAllBudgets} allBudgets={allBudgets} userData={userData} signoutHandler={signoutHandler}/>}
 
      </div>
         
