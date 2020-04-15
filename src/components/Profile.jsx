@@ -14,8 +14,10 @@ export default function Profile(props) {
     // const[data,setData]=useState([])
     let arr=[]
     let one={}
+    
     const clickHandler=(e)=>{
         db.collection('users').doc(email).collection('months').get().then(function(querySnapshot) {
+            
             querySnapshot.forEach(function(doc) {
                 // doc.data() is never undefined for query doc snapshots
                 one={
@@ -23,14 +25,15 @@ export default function Profile(props) {
                     budget:doc.data().budg
                 }
                 arr.push(one)
-                setAllBudgets(arr)
                 
                 console.log(doc.id, " => ", doc.data());
                 console.log(arr);
-                console.log(allBudgets);
                 
     
-            });
+            } 
+            );setAllBudgets(arr)
+
+            console.log(allBudgets);
         });}
     
     

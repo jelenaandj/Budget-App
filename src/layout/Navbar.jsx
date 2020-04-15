@@ -40,7 +40,7 @@ let setAllBudgets=props.setAllBudgets
             {showRegister?
             <Register handleUserNameData={handleUserNameData} username={username} email={email} setEmail={setEmail} setUserName={setUserName} db={db} user={user} setUser={setUser} firebase={firebase} /> : ''}
            {/* <input type="submit" value="Learn More"  className='btn'   /> */}
-            <Popup trigger={<input type="submit" value="Learn More"  className='btn'   />}  position="under">
+            <Popup trigger={<input type="submit" value="Learn More"  className='btn'   />} >
                 <div  className="pop" >
                     <p >This is an app designed </p>
                     <p>to help you calculate your budget.</p>

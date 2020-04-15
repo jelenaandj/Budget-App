@@ -23,7 +23,7 @@ function App() {
     const[username,setUserName]=useState('')
     const[email,setEmail]=useState('')
     const[userData,setUserData]=useState('')
-    const[allBudgets,setAllBudgets]=useState([])
+    const[allBudgets,setAllBudgets]=useState()
     // const[totalExp,setTotalExp]=useState([])
   
 // if (user != null) {  

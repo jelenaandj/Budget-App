@@ -51,6 +51,8 @@ body{
   left: -25.925px !important;
   padding: 0 !important;
   margin-top: 270px !important;
+  margin-left: 30px!important;
+
 }
 
 
@@ -223,7 +225,6 @@ input{
   }
   .popup-content{
   overflow-wrap: scroll !important;
-
   }
 }
 @media (max-width: 800px) {
