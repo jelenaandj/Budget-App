@@ -50,7 +50,7 @@ body{
   top: 0 !important;
   left: -25.925px !important;
   padding: 0 !important;
-  margin-top: 270px !important;
+  margin-top: 400px !important;
   margin-left: 30px!important;
 
 }
@@ -204,6 +204,24 @@ input{
 .button:hover{
   color: #83BCF1;
   border: 2px solid #83BCF1;
+}
+.all-budgets{
+  border: black 1px solid;
+  /* padding: 5%; */
+  width: 40%;
+  margin-bottom: 10%;
+  
+}
+.all-budgets .button{
+  width:fit-content;
+  height: auto;
+  padding: 5px;
+  float: right;
+  position: relative;
+  
+}
+.all-budgets div{
+  padding: 2%;
 }
 .footer{
   position: fixed; 

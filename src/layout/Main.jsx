@@ -23,6 +23,7 @@ let budg=props.budg
 let setBudg=props.setBudg
 let handleClick=props.handleClick
 let allBudgets=props.allBudgets
+let setAllBudgets=props.setAllBudgets
 
     return (
         <div className='main'>
@@ -35,7 +36,7 @@ let allBudgets=props.allBudgets
                     <Income  inputs={inputs} setInputs={setInputs}/>
                     <Expenses  inputs={inputs} setInputs={setInputs} />
                 </div>
-                <AllBudgets db={db} email={email} allBudgets={allBudgets} />
+                <AllBudgets db={db} email={email} allBudgets={allBudgets} setAllBudgets={setAllBudgets}/>
         </div>
     )
 }

@@ -6,7 +6,8 @@ export default function AllBudgets(props) {
     let db=props.db
     let allBudgets=props.allBudgets
     let email=props.email
-    const[show,setShow]=useState(false)
+    let setAllBudgets=props.setAllBudgets
+
     console.log(allBudgets)
     //
     // allBudgets.map(budget => <MonthBudget budget={budget}/>)
@@ -16,18 +17,21 @@ export default function AllBudgets(props) {
     // if(allBudgets!==undefined){
     // newBudgets=allBudgets.forEach(budget=> budget.forEach(x=>x.sort((a,b)=>a.x-b.x)))
     // console.log(newBudgets)}
-
+    const divHandler=(e)=>{
+        setAllBudgets(undefined)
+        
+    }
 
 
     return (
         <div>
-        {show?
-        <div>
-        <div> {allBudgets!==undefined?  allBudgets.map(budget => <MonthBudget budget={budget}/>) :'' } </div> 
+        {allBudgets && <div className='all-budgets'>
+        <div> <input type='submit' value='X' className='button' onClick={divHandler} /> </div>
+        <div> {allBudgets!==undefined?  allBudgets.map(budget => <MonthBudget key={budget.month} budget={budget}/>) :'' } </div> 
         
-        <input type='submit' value='X' onClick={(e)=>{show? setShow(false) : setShow(true)}} /> 
-        </div> : '' }
+        
+        
+        </div>}
         </div>
-
     )
 }

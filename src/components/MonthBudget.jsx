@@ -8,7 +8,7 @@ export default function MonthBudget(props) {
 
     return (
         <div>
-        <div>{budget.month} {budget.budget}</div>
+        <div style={budget.budget<0? {color:'red'} : {color:'black'}}>{budget.month} {budget.budget} </div>
     {/* <div>1{budget.month==='January'? <p>{budget.month} {budget.budget}</p>:''}</div>
     <div>2{budget.month==='February'? <p>{budget.month} {budget.budget}</p>:''}</div>
     <div>3{budget.month==='March'? <p>{budget.month} {budget.budget}</p>:''}</div>

@@ -162,7 +162,7 @@ const signoutHandler=(e)=>{
     <div className="App">
     <Navbar setAllBudgets={setAllBudgets} allBudgets={allBudgets} budg={budg} inputs={inputs} showLogin={showLogin} setShowLogin={setShowLogin} handleUserNameData={handleUserNameData} user={user} email={email} setEmail={setEmail} db={db} username={username} setUser={setUser} firebase={firebase} 
       setShowRegister={setShowRegister} showRegister={showRegister} userData={userData} signoutHandler={signoutHandler}/>
-    <Main allBudgets={allBudgets} m={m} prevBudg={prevBudg} inputs={inputs} setInputs={setInputs} db={db} user={user} month={month} 
+    <Main allBudgets={allBudgets} setAllBudgets={setAllBudgets} m={m} prevBudg={prevBudg} inputs={inputs} setInputs={setInputs} db={db} user={user} month={month} 
       setMonth={setMonth} setPrevBudg={setPrevBudg} email={email} budg={budg} setBudg={setBudg} handleClick={handleClick} />
     <Footer/>
     </div>
