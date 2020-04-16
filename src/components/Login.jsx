@@ -33,9 +33,10 @@ export default function Login(props) {
                 // user signed in
                 handleUserNameData()
              }).catch(function(error) {
-            // Handle Errors here.
+            
             var errorCode = error.code;
             var errorMessage = error.message;
+            alert('Error',errorMessage)
             // [START_EXCLUDE]
             if (errorCode === 'auth/wrong-password') {
             alert('Wrong password.');

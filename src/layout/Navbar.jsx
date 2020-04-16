@@ -23,7 +23,8 @@ let userData=props.userData
 let signoutHandler=props.signoutHandler
 let allBudgets=props.allBudgets
 let setAllBudgets=props.setAllBudgets
-
+let budg=props.budg
+let inputs=props.inputs
 
     return (
     <div className='navdiv'>
@@ -42,7 +43,7 @@ let setAllBudgets=props.setAllBudgets
            {/* <input type="submit" value="Learn More"  className='btn'   /> */}
             <Popup trigger={<input type="submit" value="Learn More"  className='btn'   />} >
                 <div  className="pop" >
-                    <p >This is an app designed </p>
+                    <p>This is an app designed </p>
                     <p>to help you calculate your budget.</p>
                     <p>Without registering you can budget</p>
                     <p>only the current month.</p>
@@ -56,7 +57,7 @@ let setAllBudgets=props.setAllBudgets
                 </div>
             </Popup>
         </div>
-                : <Profile email={email} db={db} setAllBudgets={setAllBudgets} allBudgets={allBudgets} userData={userData} signoutHandler={signoutHandler}/>}
+                : <Profile email={email} inputs={inputs} db={db} budg={budg} setAllBudgets={setAllBudgets} allBudgets={allBudgets} userData={userData} signoutHandler={signoutHandler}/>}
 
      </div>
         

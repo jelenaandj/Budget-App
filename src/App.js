@@ -154,12 +154,13 @@ const signoutHandler=(e)=>{
   setBudg(0)
   setPrevBudg(0)
   setMonth(m)
+  setAllBudgets()
   console.log('logged out')
 }
 /////////
   return (
     <div className="App">
-    <Navbar setAllBudgets={setAllBudgets} allBudgets={allBudgets} showLogin={showLogin} setShowLogin={setShowLogin} handleUserNameData={handleUserNameData} user={user} email={email} setEmail={setEmail} db={db} username={username} setUser={setUser} firebase={firebase} 
+    <Navbar setAllBudgets={setAllBudgets} allBudgets={allBudgets} budg={budg} inputs={inputs} showLogin={showLogin} setShowLogin={setShowLogin} handleUserNameData={handleUserNameData} user={user} email={email} setEmail={setEmail} db={db} username={username} setUser={setUser} firebase={firebase} 
       setShowRegister={setShowRegister} showRegister={showRegister} userData={userData} signoutHandler={signoutHandler}/>
     <Main allBudgets={allBudgets} m={m} prevBudg={prevBudg} inputs={inputs} setInputs={setInputs} db={db} user={user} month={month} 
       setMonth={setMonth} setPrevBudg={setPrevBudg} email={email} budg={budg} setBudg={setBudg} handleClick={handleClick} />
