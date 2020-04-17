@@ -41,7 +41,7 @@ let inputs=props.inputs
             {showRegister?
             <Register handleUserNameData={handleUserNameData} username={username} email={email} setEmail={setEmail} setUserName={setUserName} db={db} user={user} setUser={setUser} firebase={firebase} /> : ''}
            {/* <input type="submit" value="Learn More"  className='btn'   /> */}
-            <Popup trigger={<input type="submit" value="Learn More"  className='btn'   />} >
+            <Popup trigger={<input type="submit" value="Learn More" className='btn'/>}>
                 <div  className="pop" >
                     <p>This is an app designed </p>
                     <p>to help you calculate your budget.</p>
@@ -51,15 +51,12 @@ let inputs=props.inputs
                     <p>you can save your changes.</p>
                     <p>When making changes </p>
                     <p>you need to choose a month first.</p>
-                    <p>Good Luck!</p>
-
-
                 </div>
             </Popup>
         </div>
-                :  <Profile email={email} inputs={inputs} db={db} budg={budg} setAllBudgets={setAllBudgets} allBudgets={allBudgets} userData={userData} signoutHandler={signoutHandler}/>}
-
-     </div>
-        
+                :  user&&
+                <Profile email={email} inputs={inputs} db={db} budg={budg} 
+                setAllBudgets={setAllBudgets} allBudgets={allBudgets} userData={userData} signoutHandler={signoutHandler}/>}
+     </div>    
     )
 }
