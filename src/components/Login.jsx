@@ -12,6 +12,9 @@ export default function Login(props) {
     let email=props.email
     let setEmail=props.setEmail
     let handleUserNameData=props.handleUserNameData
+    let setShowRegister=props.setShowRegister
+    let setShowLogin=props.setShowLogin
+
     const[password,setPassword]=useState('')
 
     const emailHandler=(e)=>{
@@ -40,6 +43,9 @@ export default function Login(props) {
             // [START_EXCLUDE]
             if (errorCode === 'auth/wrong-password') {
             alert('Wrong password.');
+            setUser(undefined)
+            setShowLogin(false)
+            setShowRegister(false)
             } else {
             alert(errorMessage);
             }
@@ -47,6 +53,7 @@ export default function Login(props) {
             });
             }else{
                 alert('Please enter your password and username')
+                setUser(undefined)
             }
     }
     return (

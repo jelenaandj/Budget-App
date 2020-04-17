@@ -60,7 +60,7 @@ body{
   position: relative;
   width: 75%;
   float: right;
-  height: 100vh;
+  /* height: 90vh; */
   /* padding: 50px; */
 }
 .navbar .budget-label{
@@ -196,7 +196,7 @@ input{
 .button{
   padding: 3%;
   margin-left: 10%;
-  width: 40%;
+  width: 20%;
   height: 40px;
   background-color: #F1B883;
   color: white;
@@ -206,7 +206,8 @@ input{
   border: 2px solid #83BCF1;
 }
 .all-budgets{
-  border: black 1px solid;
+  height: 300px;
+  /* border: black 1px solid; */
   /* padding: 5%; */
   width: 40%;
   margin-bottom: 10%;

@@ -49,7 +49,7 @@ export default function Profile(props) {
         <div className='profile'>
 <label className='budget-label'>The Budget App</label>
            {userData&& <label className='user'>Hello {userData}!</label>}
-           <input type="submit" value="All Budgets"  className='btn'  onClick={budgetsHandler} />
+           <a href={'#all-budgets-div'}><input type="submit" value="All Budgets"  className='btn'  onClick={budgetsHandler} /></a>
            
            <input type="submit" value="Log out"  className='btn'  onClick={signoutHandler} />
 

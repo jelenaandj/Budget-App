@@ -24,14 +24,10 @@ export default function AllBudgets(props) {
 
 
     return (
-        <div>
-        {allBudgets && <div className='all-budgets'>
-        <div> <input type='submit' value='X' className='button' onClick={divHandler} /> </div>
-        <div> {allBudgets!==undefined?  allBudgets.map(budget => <MonthBudget key={budget.month} budget={budget}/>) :'' } </div> 
         
-        
-        
-        </div>}
+        <div className='all-budgets'>
+        {allBudgets && <><div><input type='submit' value='X' className='button' onClick={divHandler} /> </div>
+        <div > {allBudgets!==undefined?  allBudgets.map(budget => <MonthBudget key={budget.month} budget={budget}/>) :'' }</div></> }
         </div>
     )
 }

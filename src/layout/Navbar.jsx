@@ -34,7 +34,7 @@ let inputs=props.inputs
             {!showLogin&&
             <input type='submit' value='Log in'  className='btn'  onClick={(e)=>showLogin? setShowLogin(false):setShowLogin(true)}/>}
              {showLogin?
-            <Login handleUserNameData={handleUserNameData} user={user} email={email} setEmail={setEmail} db={db} username={username} setUser={setUser} firebase={firebase}/> : ''}
+            <Login setShowLogin={setShowLogin} setShowRegister={setShowRegister} handleUserNameData={handleUserNameData} user={user} email={email} setEmail={setEmail} db={db} username={username} setUser={setUser} firebase={firebase}/> : ''}
 
             {!showRegister&&
             <input type='submit' value='Register'  className='btn' onClick={(e)=>showRegister? setShowRegister(false):setShowRegister(true)}/>}
@@ -57,7 +57,7 @@ let inputs=props.inputs
                 </div>
             </Popup>
         </div>
-                : <Profile email={email} inputs={inputs} db={db} budg={budg} setAllBudgets={setAllBudgets} allBudgets={allBudgets} userData={userData} signoutHandler={signoutHandler}/>}
+                :  <Profile email={email} inputs={inputs} db={db} budg={budg} setAllBudgets={setAllBudgets} allBudgets={allBudgets} userData={userData} signoutHandler={signoutHandler}/>}
 
      </div>
         
