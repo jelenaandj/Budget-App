@@ -47,14 +47,17 @@ export default function Form(props) {
     }
 
     const handleButton=(e)=>{
-        
-            if(text !=='' && numb !=='' && !isNaN(numb)){
+        if(!isNaN(numb)){
+            if(text !=='' && numb !=='' ){
                 handleClick(select,text,numb)
                 }else{
                     // console.log('empty') 
-                    alert('Please enter correct data format')     
+                alert('Please do not leave input fields empty') 
+                    
                 }
-        e.preventDefault()
+        e.preventDefault()}else{
+            alert('Please only use numbers in the amount field')
+        }
     }
 
     const handleSave=(e)=>{

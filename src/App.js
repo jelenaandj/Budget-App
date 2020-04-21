@@ -120,7 +120,7 @@ const[month,setMonth]=useState(m)
 const handleUserNameData=(e)=>{
   firebase.auth().onAuthStateChanged(function(user) {
     ///
-    if(email !==undefined && username !==undefined){
+    if(email !==undefined && username !==undefined && user){
     db.collection('users').doc(email).collection('personalInfo').doc('username').get()
     .then(function(doc) {
     if (doc.exists) {
@@ -160,7 +160,7 @@ const signoutHandler=(e)=>{
 /////////
   return (
     <div className="App">
-    <Navbar setAllBudgets={setAllBudgets} allBudgets={allBudgets} budg={budg} inputs={inputs} showLogin={showLogin} setShowLogin={setShowLogin} handleUserNameData={handleUserNameData} user={user} email={email} setEmail={setEmail} db={db} username={username} setUser={setUser} firebase={firebase} 
+    <Navbar setAllBudgets={setAllBudgets} setUserName={setUserName} allBudgets={allBudgets} budg={budg} inputs={inputs} showLogin={showLogin} setShowLogin={setShowLogin} handleUserNameData={handleUserNameData} user={user} email={email} setEmail={setEmail} db={db} username={username} setUser={setUser} firebase={firebase} 
       setShowRegister={setShowRegister} showRegister={showRegister} userData={userData} signoutHandler={signoutHandler}/>
     <Main allBudgets={allBudgets} setAllBudgets={setAllBudgets} m={m} prevBudg={prevBudg} inputs={inputs} setInputs={setInputs} db={db} user={user} month={month} 
       setMonth={setMonth} setPrevBudg={setPrevBudg} email={email} budg={budg} setBudg={setBudg} handleClick={handleClick} />

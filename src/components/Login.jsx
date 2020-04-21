@@ -39,7 +39,7 @@ export default function Login(props) {
             
             var errorCode = error.code;
             var errorMessage = error.message;
-            alert('Error',errorMessage)
+            alert(errorMessage)
             // [START_EXCLUDE]
             if (errorCode === 'auth/wrong-password') {
             alert('Wrong password.');
@@ -48,8 +48,12 @@ export default function Login(props) {
             setShowRegister(false)
             } else {
             alert(errorMessage);
-            }
             console.log(error);
+            setUser(undefined)
+            setShowLogin(false)
+            setShowRegister(false)
+            }
+           
             });
             }else{
                 alert('Please enter your password and username')

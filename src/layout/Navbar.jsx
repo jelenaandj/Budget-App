@@ -39,7 +39,7 @@ let inputs=props.inputs
             {!showRegister&&
             <input type='submit' value='Register'  className='btn' onClick={(e)=>showRegister? setShowRegister(false):setShowRegister(true)}/>}
             {showRegister?
-            <Register handleUserNameData={handleUserNameData} username={username} email={email} setEmail={setEmail} setUserName={setUserName} db={db} user={user} setUser={setUser} firebase={firebase} /> : ''}
+            <Register setShowLogin={setShowLogin} setShowRegister={setShowRegister} handleUserNameData={handleUserNameData} username={username} email={email} setEmail={setEmail} setUserName={setUserName} db={db} user={user} setUser={setUser} firebase={firebase} /> : ''}
            {/* <input type="submit" value="Learn More"  className='btn'   /> */}
             <Popup trigger={<input type="submit" value="Learn More" className='btn'/>}>
                 <div  className="pop" >
@@ -47,14 +47,14 @@ let inputs=props.inputs
                     <p>to help you calculate your budget.</p>
                     <p>Without registering you can budget</p>
                     <p>only the current month.</p>
-                    <p>When you logg in, </p>
+                    <p>When you log in, </p>
                     <p>you can save your changes.</p>
                     <p>When making changes </p>
                     <p>you need to choose a month first.</p>
                 </div>
             </Popup>
         </div>
-                :  user&&
+                :  
                 <Profile email={email} inputs={inputs} db={db} budg={budg} 
                 setAllBudgets={setAllBudgets} allBudgets={allBudgets} userData={userData} signoutHandler={signoutHandler}/>}
      </div>    

@@ -14,7 +14,6 @@ export default function Header(props) {
     let prevBudg=props.prevBudg
     let email=props.email
 
-
     
     const options = [
         { value: 'January', label: 'January',},
@@ -85,8 +84,8 @@ export default function Header(props) {
             alert('please choose a month')   
         }}else{
             setMonth(m)
-            alert('Please Log in to select a specific Month')
-            
+            alert('Please log in to select a specific month')
+            e.label=m
         }
     }
 
@@ -95,7 +94,7 @@ export default function Header(props) {
                 
             <h1>Your <label className='budget-label'>Budget</label> for</h1>
             <h1>{month}</h1>
-            <Select options={options} className='select' placeholder='Select Month...' onChange={onMonthChange} />   
+            <Select options={options} className='select' placeholder='Select Month...'  onChange={onMonthChange} />   
 
         </div>
     )
