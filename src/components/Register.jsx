@@ -62,7 +62,7 @@ export default function Register(props) {
                 setShowRegister(false) 
               });  
         }else{
-            alert('Please confirm password')
+            alert('Password does not match')
         }
         
     } 

@@ -81,7 +81,7 @@ export default function Header(props) {
         }
 
             }else{
-            alert('please choose a month')   
+            alert('Choose a month')   
         }}else{
             setMonth(m)
             alert('Please log in to select a specific month')
