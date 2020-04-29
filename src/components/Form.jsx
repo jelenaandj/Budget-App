@@ -19,8 +19,8 @@ export default function Form(props) {
       ]
     // let{handleClick,input}=props
     const[select,setSelect]=useState('')
-    const[text,setText]=useState()
-    const[numb,setNumb]=useState()
+    const[text,setText]=useState('')
+    const[numb,setNumb]=useState('')
     
     const onSelectChange=(e)=>{
        if(e.value !==''){
@@ -43,21 +43,21 @@ export default function Form(props) {
             setNumb(e.target.value)
             }else{
             // console.log('empty')
-            alert('Please enter correct data format')}
+            alert('Enter correct data format')}
     }
 
     const handleButton=(e)=>{
-        if(text !=='' && numb !=='' && select !=='' ){
+        if(text !==''&& numb !==''&& select !==''){
             if(!isNaN(numb)){
                 handleClick(select,text,numb)
                 }else{
                     // console.log('empty') 
-            alert('Please only use numbers in the amount field')
+            alert('Use only numbers in the amount field')
                  
                     
                 }
         e.preventDefault()}else{
-            alert('Please do not leave input fields empty')
+            alert('Do not leave input fields empty')
         }
     }
 
