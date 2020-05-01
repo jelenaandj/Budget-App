@@ -37,7 +37,7 @@ let setAllBudgets=props.setAllBudgets
                     <Expenses  inputs={inputs} setInputs={setInputs} />
                 </div>
                 
-                <AllBudgets db={db} email={email} allBudgets={allBudgets} setAllBudgets={setAllBudgets}/>
+                <AllBudgets allBudgets={allBudgets} setAllBudgets={setAllBudgets}/>
                 <div id='all-budgets-div'>
                 </div>
         </div>

@@ -3,9 +3,9 @@ import MonthBudget from './MonthBudget'
 
 export default function AllBudgets(props) {
 
-    let db=props.db
+    // let db=props.db
     let allBudgets=props.allBudgets
-    let email=props.email
+    // let email=props.email
     let setAllBudgets=props.setAllBudgets
 
     console.log(allBudgets)
