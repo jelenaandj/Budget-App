@@ -40,11 +40,11 @@ if(prevBudg !== 'number'){
 }
 },) 
     return (
-        <div>
-        <div>
-            Budget from the previous Month:{prevBudg}
+        <div className='budget'>
+        <div className='previous-month'>
+            Previous Month: {prevBudg}
         </div>
-        <div>
+        <div className='current-budget'>
             Current Budget: {budg}
         </div>
         

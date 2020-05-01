@@ -11,7 +11,8 @@ export default function Income(props) {
     // console.log(inputs)
     return (
         <div className='income' >
-           {inputs.filter(inputB=> inputB.value.includes('Income')).map(inputB=> <Input inputB={inputB}  setInputs={setInputs} inputs={inputs} />) }
+           {inputs.length>0? <label>Incomes</label>:''}
+           {inputs.filter(inputB=> inputB.value.includes('Income')).map(inputB=><Input inputB={inputB}  setInputs={setInputs} inputs={inputs} />) }
         </div>
     )
 }

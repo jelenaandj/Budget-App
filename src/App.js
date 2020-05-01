@@ -4,15 +4,9 @@ import "firebase/auth";
 import "firebase/firestore";
 import "firebase/database";
 import './App.css';
-import Form from './components/Form'; 
-import Income from './components/Income';
-import Expenses from './components/Expenses';
-import Total from './components/Total';
-import Budget from './components/Budget';
-import Login from './components/Login';
-import Header from './layout/Header';
-import Register from './components/Register';
-import Profile from './components/Profile';
+import Footer from './layout/Footer';
+import Navbar from './layout/Navbar';
+import Main from './layout/Main';
 
 const uuidv4 = require('uuid/v4')
 // const firebase = require("firebase");
@@ -29,7 +23,7 @@ function App() {
     const[username,setUserName]=useState('')
     const[email,setEmail]=useState('')
     const[userData,setUserData]=useState('')
-  
+    const[allBudgets,setAllBudgets]=useState()
     // const[totalExp,setTotalExp]=useState([])
   
 // if (user != null) {  
@@ -38,7 +32,7 @@ function App() {
 
 /////////////////////////FIREBASE/////////////
 const firebaseConfig = {
-    apiKey: "AIzaSyAVNGZqhJbMxHXce-_YzNB0Xb0AY7xsYBs",
+    apiKey: "AIzaSyAVNGZqhJbMxHXce-_YzNB0Xb0AY7xsYBs", 
     authDomain: "budget-4f776.firebaseapp.com",
     databaseURL: "https://budget-4f776.firebaseio.com",
     projectId: "budget-4f776",
@@ -126,7 +120,7 @@ const[month,setMonth]=useState(m)
 const handleUserNameData=(e)=>{
   firebase.auth().onAuthStateChanged(function(user) {
     ///
-    if(email !==undefined && username !==undefined){
+    if(email !==undefined && username !==undefined && user){
     db.collection('users').doc(email).collection('personalInfo').doc('username').get()
     .then(function(doc) {
     if (doc.exists) {
@@ -160,35 +154,17 @@ const signoutHandler=(e)=>{
   setBudg(0)
   setPrevBudg(0)
   setMonth(m)
+  setAllBudgets()
   console.log('logged out')
 }
 /////////
   return (
     <div className="App">
-    {user===undefined? 
-    <div>
-
-      {!showLogin&&
-    <input type='submit' value='Log in' onClick={(e)=>showLogin? setShowLogin(false):setShowLogin(true)}/>}
-    {showLogin?
-    <Login handleUserNameData={handleUserNameData} user={user} email={email} setEmail={setEmail} db={db} username={username} setUser={setUser} firebase={firebase}/> : ''}
-
-    {!showRegister&&
-    <input type='submit' value='Register' onClick={(e)=>showRegister? setShowRegister(false):setShowRegister(true)}/>}
-    {showRegister?
-    <Register handleUserNameData={handleUserNameData} username={username} email={email} setEmail={setEmail} setUserName={setUserName} db={db} user={user} setUser={setUser} firebase={firebase} /> : ''}
-    </div>
-     : <input type="submit" value="Log out" onClick={signoutHandler} />}
-    <Profile userData={userData}/>
-    <Header m={m} prevBudg={prevBudg} inputs={inputs} setInputs={setInputs} db={db} user={user} month={month} setMonth={setMonth} setPrevBudg={setPrevBudg} email={email}/>
-    <Budget prevBudg={prevBudg} expense={inputs.filter(inputB=> inputB.value.includes('Expense'))} income={inputs.filter(inputB=> inputB.value.includes('Income'))} budg={budg} setBudg={setBudg} />
-    <label>Income</label><Total  input={inputs.filter(inputB=> inputB.value.includes('Income'))}/>
-    <label>Expense</label><Total  input={inputs.filter(inputB=> inputB.value.includes('Expense'))}/>
-    <Form handleClick={handleClick}  inputs={inputs} month={month} db={db} user={user} budg={budg} email={email} />
-    <div className='container'>
-    <Income  inputs={inputs} setInputs={setInputs}/>
-    <Expenses  inputs={inputs} setInputs={setInputs} />
-    </div>
+    <Navbar setAllBudgets={setAllBudgets} setUserName={setUserName} allBudgets={allBudgets} budg={budg} inputs={inputs} showLogin={showLogin} setShowLogin={setShowLogin} handleUserNameData={handleUserNameData} user={user} email={email} setEmail={setEmail} db={db} username={username} setUser={setUser} firebase={firebase} 
+      setShowRegister={setShowRegister} showRegister={showRegister} userData={userData} signoutHandler={signoutHandler}/>
+    <Main allBudgets={allBudgets} setAllBudgets={setAllBudgets} m={m} prevBudg={prevBudg} inputs={inputs} setInputs={setInputs} db={db} user={user} month={month} 
+      setMonth={setMonth} setPrevBudg={setPrevBudg} email={email} budg={budg} setBudg={setBudg} handleClick={handleClick} />
+    <Footer/>
     </div>
   );}
 

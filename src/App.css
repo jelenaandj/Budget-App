@@ -1,60 +1,307 @@
-.App {
-  text-align: center;
-}
-
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+/* 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
-  to {
+  to {#83BCF1
     transform: rotate(360deg);
   }
-} */
+} */ 
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  border: 3px solid #F5CEAB;
 
+ 
+}
+.navdiv{
+  position: fixed;
+  width: 20%;
+  height:100vh;
+  background-color:#F5CEAB;
+  border: 2px solid #F5CEAB;
+} 
+.navbar, .profile{
+  /* position: relative; */
+  margin: 0 5%;
+  /* text-align: right; */
+  /* top: 20%;
+  transform: translateY(-50%); */
+  display: flex;
+  flex-direction: column;
+  padding: 20%;
+  padding-top: 10%;
+  justify-content: space-evenly;
+}
+.popup-content{
+ /* display: block; 
+!important;
+}
+ /* background-color: white;
+ position: absolute;
+ border: 1px solid rgb(187,187,187);
+ box-shadow: rgba(0,0,0.2) 0px 1px 3px;
+ padding: 5px;  */
+ /* height: 600px; */
+ /* word-break: break-all; */
+  width: 300px!important;
+  font-size: smaller !important;
+  top: 0 !important;
+  left: -25.925px !important;
+  padding: 0 !important;
+  margin-top: 400px !important;
+  margin-left: 30px!important;
+
+}
+
+
+.main{
+  position: relative;
+  width: 75%;
+  float: right;
+  /* height: 90vh; */
+  /* padding: 50px; */
+}
+.navbar .budget-label{
+  padding: 2%;
+  font-size: xx-large;
+}
+.btn{
+  margin-top:20px;
+  background-color: #F1B883;
+  border: 3px solid white;
+  color: white;
+  font-weight: bolder;
+  height: 40px;
+  width: 100px;
+  padding: 2%;
+  
+}
+.btn:hover{
+  color: #83BCF1;
+  border:3px solid #83BCF1;
+}
+
+.profile .budget-label{
+  /* position: fixed;
+  left: 0; */
+  padding-right: 1%;
+  font-size: xx-large;
+
+}
+.profile label{
+  align-self: center;
+}
+.user{
+  padding-top: 50%;
+  padding-bottom: 25%;
+  padding-right: 30%;
+
+}
+.budget-label{
+  font-family: 'Pacifico', cursive;
+  font-weight: 400;
+}
+/* //////////////////// */
+
+.header{
+display: flex;
+flex-direction: column;
+align-items: center;
+/* margin-bottom: 3%; */
+}
+h1{
+  margin: 1%;
+  padding-top: 2%;
+}
 .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 15rem;
+  display: flex;
+  /* justify-content: space-evenly;  */
+  align-items: flex-start;
+} 
+.select{
+  width: 200px;
+  margin-top:10px;
 }
-
-.container > div {
-  background: #EDE7F6;
-  padding: 1.5rem;
-  border-radius: 1rem;
-}
-
 .form{
   width: 150px;
+
 }
-.expenses{
-  color: red;
+.expenses, .income{
+  /* color: red; */
+  width: 35%;
+  margin-right: 10%;
+  justify-self: center;
+  padding: 2%;
+
 }
-.income{
-  color:blue;
+.expenses .button, .income .button{
+  width: fit-content;
+}
+
+.expenses label, .income label{
+  margin: 40%;
+}
+
+.input{
+  border: solid #F1B883 3px;
+  background-color: #FAE5D3;
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  /* padding: 2%; */
+  margin: 2%;
+  /* width: 100px; */
+ 
+}
+.input .button{
+  display: none;
+
+}
+.input, p{
+  margin: 5%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.input:hover .button{
+  display: flex;
+  justify-content: start;
+  margin-left: 0;
+}
+.input-container input{
+ max-width:100%;
+}
+
+.empty{
+  width: 100%;
+  height: 0;
+  padding: 0;
+  margin:0
+}
+.income-total, .expense-total, .previous-month, .current-budget{
+  display: flex;
+  justify-content:center;
+  /* position: absolute; */
+  padding: 2%;
+  border-bottom:#F5CEAB solid 1px;
+}
+.total{
+  margin-left: 10px;
+}
+
+input{
+  width: 200px;
+  height: 30px;
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+.button{
+  padding: 3%;
+  margin-left: 10%;
+  width: 40%;
+  height: 40px;
+  background-color: #F1B883;
+  color: white;
+}
+.button:hover{
+  color: #83BCF1;
+  border: 2px solid #83BCF1;
+}
+.all-budgets{
+  /* height: 300px; */
+  /* border: black 1px solid; */
+  /* padding: 5%; */
+  width: 40%;
+  margin-bottom: 10%;
+  
+}
+.all-budgets .button{
+  width:fit-content;
+  height: auto;
+  padding: 5px;
+  float: right;
+  position: relative;
+  
+}
+.all-budgets-div{
+  height: 50px;
+}
+.all-budgets div{
+  padding: 2%;
+}
+.footer{
+  position: fixed; 
+  bottom: 0; 
+  right: 0;
+  width: 100px;
+}
+@media (max-width: 450px) {
+  .navbar, .profile{
+    padding-left: 0;
+  }
+  h1{
+    font-size: large;
+  }
+  .user{
+    padding:0;
+    padding-top: 10px;
+  
+  }
+  .popup-content{
+  overflow-wrap: scroll !important;
+  }
+}
+@media (max-width: 800px) {
+  .navdiv{
+    overflow:hidden ;
+  }
+  .input-container{
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    width:100%
+  }
+  .navbar .budget-label, .profile .budget-label{
+    padding: 0;
+    font-size: large;
+  }
+  .btn{
+    margin-top:30px;
+    background-color: #F1B883;
+    border: 3px solid white;
+    color: white;
+    font-weight: bolder;
+    height: 50px;
+    width: 60px;
+    padding: 0;
+    flex-wrap:wrap ;
+    font-size: x-small;
+  }
+  .footer{
+    position: fixed; 
+    bottom: 0; 
+    float: right;
+    width: 50px;
+  }
+  .input .button{
+    display: block;
+    width: fit-content;
+    
+    
+  }
+  .pop{
+    font-size: xx-small;
+    /* width: 30px; */
+  }
+
+  .expenses label, .income label{
+    margin: 10%;
+  }
+  .popup-content{
+    width: 100% !important;
+    margin-left: 20px;
+  }
 }

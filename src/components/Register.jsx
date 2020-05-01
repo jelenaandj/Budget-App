@@ -11,6 +11,8 @@ export default function Register(props) {
     let email=props.email
     let setEmail=props.setEmail
     let handleUserNameData=props.handleUserNameData
+    let setShowRegister=props.setShowRegister
+    let setShowLogin=props.setShowLogin
 
     const[password,setPassword]=useState('')
     const[confirmPassword,setConfirmPassword]=useState('')
@@ -43,33 +45,35 @@ export default function Register(props) {
     
     const handleRegister=(e)=>{
         e.preventDefault()
-        if(email!=='' && password!==''&& password===confirmPassword){
+        if(email!=='' && password!==''&& password===confirmPassword ){
             setUser(firebase.auth().currentUser)
             
             firebase.auth().createUserWithEmailAndPassword(email, password).then(function(user) {
                 // user signed in
-                alert('You have successfully Registered')
+                alert('You have successfully registered')
              
               handleUserNameSign()
               handleUserNameData()
              }).catch(function(error) {
-                // Handle Errors here.
-                // var errorCode = error.code;
-                // var errorMessage = error.message;
-                // ...
+                alert(error.message)
+                console.log(error)
+                setUser(undefined)
+                setShowLogin(false)
+                setShowRegister(false) 
               });  
         }else{
-            alert('please confirm the password')
+            alert('Password does not match')
         }
         
     } 
     return (
-        <div>
+        <div className='input-container'>
+
             <input type='text' placeholder='username' onChange={handleUserName}/>
             <input type="email" placeholder="Email" onChange={handleEmail} />
             <input type="password" placeholder="Password" onChange={handlePass}/>
             <input type="password" placeholder="Confirm Password" onChange={handleConfirmPass}/>
-            <input type="submit" value="Register" onClick={handleRegister}/>
+            <input type="submit" value="Register" className='btn'  onClick={handleRegister}/>
         </div>
     )
 }

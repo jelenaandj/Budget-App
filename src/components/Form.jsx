@@ -14,13 +14,13 @@ export default function Form(props) {
     let email=props.email
    
     const options = [
-        { value: 'Income', label: '+' },
-        { value: 'Expense', label: '-' }
+        { value: 'Income', label: 'Income' },
+        { value: 'Expense', label: 'Expense' }
       ]
     // let{handleClick,input}=props
     const[select,setSelect]=useState('')
-    const[text,setText]=useState()
-    const[numb,setNumb]=useState()
+    const[text,setText]=useState('')
+    const[numb,setNumb]=useState('')
     
     const onSelectChange=(e)=>{
        if(e.value !==''){
@@ -43,18 +43,22 @@ export default function Form(props) {
             setNumb(e.target.value)
             }else{
             // console.log('empty')
-            alert('Please enter correct data format')}
+            alert('Enter correct data format')}
     }
 
     const handleButton=(e)=>{
-        
-            if(text !=='' && numb !=='' && !isNaN(numb)){
+        if(text !==''&& numb !==''&& select !==''){
+            if(!isNaN(numb)){
                 handleClick(select,text,numb)
                 }else{
                     // console.log('empty') 
-                    alert('Please enter correct data format')     
+            alert('Use only numbers in the amount field')
+                 
+                    
                 }
-        e.preventDefault()
+        e.preventDefault()}else{
+            alert('Do not leave input fields empty')
+        }
     }
 
     const handleSave=(e)=>{
@@ -79,12 +83,12 @@ export default function Form(props) {
     
     return (
         <div className='form' >
-            <Select options={options} onChange={onSelectChange} />   
-            <input type='text' onChange={onTextInput} />
-            <input type='text' onChange={onNumbInput} />
+            <Select options={options} onChange={onSelectChange} placeholder='Choose type...'  className='select' />   
+            <input type='text' placeholder='Description' onChange={onTextInput} />
+            <input type='text' placeholder='Amount' onChange={onNumbInput} />
 
-            <button onClick={handleButton}>Submit</button>
-            <button onClick={handleSave}>Save</button>
+            <button onClick={handleButton} className='button'>Submit</button>
+            <button onClick={handleSave}className='button'>Save</button>
 
         </div>
     )
