@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/lampfront/static/css/main.290a64e4.css",
+    "main.js": "/lampfront/static/js/main.c5188bfd.js",
+    "index.html": "/lampfront/index.html",
+    "main.290a64e4.css.map": "/lampfront/static/css/main.290a64e4.css.map",
+    "main.c5188bfd.js.map": "/lampfront/static/js/main.c5188bfd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.290a64e4.css",
+    "static/js/main.c5188bfd.js"
+  ]
+}
