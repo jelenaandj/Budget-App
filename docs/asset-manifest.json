@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/lampfront/static/css/main.290a64e4.css",
-    "main.js": "/lampfront/static/js/main.c5188bfd.js",
-    "index.html": "/lampfront/index.html",
-    "main.290a64e4.css.map": "/lampfront/static/css/main.290a64e4.css.map",
-    "main.c5188bfd.js.map": "/lampfront/static/js/main.c5188bfd.js.map"
+    "main.css": "/Budget-App/static/css/main.290a64e4.css",
+    "main.js": "/Budget-App/static/js/main.51db3613.js",
+    "index.html": "/Budget-App/index.html",
+    "main.290a64e4.css.map": "/Budget-App/static/css/main.290a64e4.css.map",
+    "main.51db3613.js.map": "/Budget-App/static/js/main.51db3613.js.map"
   },
   "entrypoints": [
     "static/css/main.290a64e4.css",
-    "static/js/main.c5188bfd.js"
+    "static/js/main.51db3613.js"
   ]
 }
